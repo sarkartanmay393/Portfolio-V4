@@ -37,8 +37,8 @@ export default function ProjectsPage() {
                   description={project.description}
                   dates={project.dates}
                   tags={project.technologies}
-                  image={project.image}
-                  video={project.video}
+                  image={''}
+                  video={''}
                   links={project.links}
                 />
               </BlurFade>

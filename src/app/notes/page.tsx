@@ -1,9 +1,7 @@
 import BlurFade from "@/components/magicui/blur-fade";
 import { NoteCard } from "@/components/note.card";
-import { ResumeCard } from "@/components/resume-card";
 import { BLUR_FADE_DELAY } from "@/lib/constants";
 import { DATA } from "@/services/resume";
-import Link from "next/link";
 
 export default function NotesPage() {
   return (
