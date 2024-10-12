@@ -27,10 +27,10 @@ export default async function BlogPage() {
           return 1;
         })
         .map((post, id) => (
-          <BlurFade delay={BLUR_FADE_DELAY * 2 + id * 0.05} key={post.slug}>
+          <BlurFade delay={BLUR_FADE_DELAY * 2 + id * 0.05} key={post.slug + id}>
             <Link
               className="flex flex-col space-y-1 mb-4"
-              href={`/blog/${post.slug}`}
+              href={post.slug ? `/blog/${post.slug}` : post.metadata.url}
             >
               <div className="w-full flex flex-col">
                 <p className="tracking-tight">{post.metadata.title}</p>

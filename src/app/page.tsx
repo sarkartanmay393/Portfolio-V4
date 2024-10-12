@@ -5,6 +5,10 @@ import { Badge } from "@/components/ui/badge";
 import { DATA } from "@/services/resume";
 import Markdown from "react-markdown";
 import { BLUR_FADE_DELAY } from "@/lib/constants";
+import { HackathonCard } from "@/components/hackathon-card";
+import { cn } from "@/lib/utils";
+import WorkExperiencePage from "./workexperience/page";
+import EducationPage from "./education/page";
 
 export default function Page() {
   return (
@@ -60,7 +64,7 @@ export default function Page() {
         </div>
       </section>
 
-      {/* <section id="hackathons">
+      <section id="hackathons" className={cn(DATA.hackathons.length > 0 ? '' : 'hidden')}>
         <div className="space-y-12 w-full py-12">
           <BlurFade delay={BLUR_FADE_DELAY * 13}>
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
@@ -84,7 +88,7 @@ export default function Page() {
           </BlurFade>
           <BlurFade delay={BLUR_FADE_DELAY * 14}>
             <ul className="mb-4 ml-4 divide-y divide-dashed border-l">
-              {DATA.hackathons.map((project, id) => (
+              {DATA.hackathons.map((project: any, id) => (
                 <BlurFade
                   key={project.title + project.dates}
                   delay={BLUR_FADE_DELAY * 15 + id * 0.05}
@@ -102,7 +106,11 @@ export default function Page() {
             </ul>
           </BlurFade>
         </div>
-      </section> */}
+      </section>
+
+      <WorkExperiencePage />
+      <EducationPage />
+
     </main>
   );
 }
