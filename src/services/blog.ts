@@ -173,5 +173,6 @@ async function getHashnodeBlogs() {
 }
 
 export async function getBlogPosts() {
-  return [... await getHashnodeBlogs(), ... await getAllPosts(path.join(process.cwd(), "content"))];
+  // return [... await getHashnodeBlogs(), ... await getAllPosts(path.join(process.cwd(), "content"))];
+  return [... await getHashnodeBlogs()];
 }
