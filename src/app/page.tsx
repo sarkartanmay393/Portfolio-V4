@@ -1,5 +1,3 @@
-'use client';
-
 import BlurFade from "@/components/magicui/blur-fade";
 import BlurFadeText from "@/components/magicui/blur-fade-text";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -12,9 +10,8 @@ import { cn } from "@/lib/utils";
 import { ResumeCard } from "@/components/resume-card";
 import Link from "next/link";
 import { Separator } from "@/components/ui/separator";
-import { DockIcon } from "@/components/magicui/dock";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
-import { buttonVariants } from "@/components/ui/button";
+import { Button, buttonVariants } from "@/components/ui/button";
 
 export default function Page() {
   return (
@@ -37,7 +34,7 @@ export default function Page() {
             </div>
             <BlurFade delay={BLUR_FADE_DELAY}>
               <Avatar className="size-28 border">
-                <AvatarImage alt={DATA.name} src={DATA.avatarUrl} />
+                <AvatarImage loading="lazy" alt={DATA.name} src={DATA.avatarUrl} />
                 <AvatarFallback>{DATA.initials}</AvatarFallback>
               </Avatar>
             </BlurFade>
@@ -168,36 +165,38 @@ export default function Page() {
         <Separator orientation="horizontal" className="py-[0.5px]" />
         <div className="grid items-center justify-center gap-4 px-4 text-center pt-6 mb-2">
           <BlurFade delay={BLUR_FADE_DELAY * 16}>
-            <div className="space-y-1">
-              <div className="inline-block rounded-lg bg-foreground text-background px-3 py-1 text-sm">
-                Contact
-              </div>
-              <div className="flex gap-2 justify-center items-center">
-              <h2 className="text-xl font-bold tracking-tighter sm:text-2xl">
-                Get in Touch:
-              </h2>
-              <div className="">
-                {Object.entries(DATA.contact.social)
-                  .filter(([_, social]) => social.navbar)
-                  .map(([name, social]) => (
-                    <Tooltip key={name}>
-                      <TooltipTrigger asChild>
-                        <Link
-                          href={social.url}
-                          className={cn(
-                            buttonVariants({ variant: "ghost", size: "icon" }),
-                            "size-12"
-                          )}
-                        >
-                          <social.icon className="size-4" />
-                        </Link>
-                      </TooltipTrigger>
-                      <TooltipContent>
-                        <p>{name}</p>
-                      </TooltipContent>
-                    </Tooltip>
-                  ))}
-              </div>
+            <div className="space-y-2">
+              <Button asChild className="rounded-lg bg-foreground text-background text-xs" size="sm" variant="outline">
+                <Link href="https://dub.sh/tanmays-resume" download className="text-xs">
+                  Download Resume
+                </Link>
+              </Button>
+              <div className="flex gap-1 justify-center items-center">
+                <h2 className="text-lg font-bold tracking-tighter sm:text-xl">
+                  Get in Touch:
+                </h2>
+                <div className="">
+                  {Object.entries(DATA.contact.social)
+                    .filter(([_, social]) => social.navbar)
+                    .map(([name, social]) => (
+                      <Tooltip key={name}>
+                        <TooltipTrigger asChild>
+                          <Link
+                            href={social.url}
+                            className={cn(
+                              buttonVariants({ variant: "ghost", size: "icon" }),
+                              "size-8"
+                            )}
+                          >
+                            <social.icon className="size-4" />
+                          </Link>
+                        </TooltipTrigger>
+                        <TooltipContent>
+                          <p>{name}</p>
+                        </TooltipContent>
+                      </Tooltip>
+                    ))}
+                </div>
               </div>
               <p className="mx-auto max-w-[600px] text-muted-foreground md:text-lg/relaxed lg:text-base/relaxed xl:text-base/relaxed">
                 Want to chat? Just shoot me a dm{" "}

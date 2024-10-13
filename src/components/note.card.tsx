@@ -2,32 +2,34 @@
 
 import { Badge } from "@/components/ui/badge";
 import { Card, CardHeader } from "@/components/ui/card";
-import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
-import { ChevronRightIcon } from "lucide-react";
 // import Link from "next/link";
 import React from "react";
 
 interface ResumeCardProps {
   no: number,
-  title: string;
+  title?: string;
   href?: string;
   badges?: readonly string[];
-  period: string;
+  period?: string;
   description?: string;
+  brief?: string;
+  type?: string;
+  publishedAt?: string;
 }
 export const NoteCard = ({
   no,
   title,
+  brief,
   badges,
   description,
 }: ResumeCardProps) => {
-  const [isExpanded, setIsExpanded] = React.useState(false);
+  const [isExpanded] = React.useState(false);
 
   const handleClick = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     if (description) {
       e.preventDefault();
-      setIsExpanded(!isExpanded);
+      // setIsExpanded(!isExpanded);
     }
   };
 
@@ -45,7 +47,7 @@ export const NoteCard = ({
             <div className="flex items-center justify-between gap-x-2 text-base">
               <h3 className="inline-flex items-center justify-center font-normal leading-none text-xs sm:text-sm">
                 {no+'. '}
-                {title}
+                {title || brief}
                 {badges && (
                   <span className="inline-flex gap-x-1">
                     {badges.map((badge, index) => (
@@ -59,12 +61,12 @@ export const NoteCard = ({
                     ))}
                   </span>
                 )}
-                <ChevronRightIcon
+                {/* <ChevronRightIcon
                   className={cn(
                     "size-4 translate-x-0 transform opacity-0 transition-all duration-300 ease-out group-hover:translate-x-1 group-hover:opacity-100",
                     isExpanded ? "rotate-90" : "rotate-0"
                   )}
-                />
+                /> */}
               </h3>
               {/* <div className="text-xs sm:text-sm tabular-nums text-muted-foreground text-right">
                 {period}

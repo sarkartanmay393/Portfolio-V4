@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export const metadata = {
   title: "Blog",
-  description: "My thoughts on software development, life, and more.",
+  description: "My blogs on software development, life, and more.",
 };
 
 const BLUR_FADE_DELAY = 0.04;
@@ -30,7 +30,7 @@ export default async function BlogPage() {
           <BlurFade delay={BLUR_FADE_DELAY * 2 + id * 0.05} key={post.slug + id}>
             <Link
               className="flex flex-col space-y-1 mb-4"
-              href={post.slug ? `/blog/${post.slug}` : post.metadata.url}
+              href={post.slug ? `/blogs/${post.slug}` : post.metadata.url}
             >
               <div className="w-full flex flex-col">
                 <p className="tracking-tight">{post.metadata.title}</p>

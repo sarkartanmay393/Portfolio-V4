@@ -151,7 +151,7 @@ async function getHashnodeBlogs() {
   const format = {
     blogs: posts.edges.map((n) => ({
       metadata: {
-        publishedAt: n.node.publishedAt,
+        publishedAt: n.node.publishedAt.split('T')[0] || '1900-12-12',
         title: n.node.title,
         url: n.node.url,
       },

@@ -66,7 +66,7 @@ export const DATA = {
         name: "X",
         url: "https://x.com/sarkartanmay393",
         icon: Icons.x,
-        navbar: false,
+        navbar: true,
       },
     },
   },
@@ -221,10 +221,10 @@ export const DATA = {
     },
     {
       title: "FrameFlex",
-      href: "https://geo-pulse.vercel.app",
+      href: "https://frameflex.vercel.app",
       links: [
         {
-          href: "https://geo-pulse.vercel.app",
+          href: "https://frameflex.vercel.app",
           icon: '',
           type: "Website",
         },
@@ -286,7 +286,12 @@ export const DATA = {
   hackathons: [],
   notes: [
     { 
-      brief: "A note on the importance of having a strong foundation in computer science.", title: "Computer Science Foundations", publishedAt: "2024-06-18", slug: "computer-science-foundations"
+      type: 'quote', 
+      brief: "You are what think you are. You are what you do. You are what you want to do. And you are the best thing since sliced bread.",
+      publishedAt: "2023-08-18",
+      title: "",
+      url: "",
+      cover: "",
     },
   ]
 } as const;

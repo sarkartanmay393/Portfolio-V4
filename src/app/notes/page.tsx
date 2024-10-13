@@ -3,6 +3,11 @@ import { NoteCard } from "@/components/note.card";
 import { BLUR_FADE_DELAY } from "@/lib/constants";
 import { DATA } from "@/services/resume";
 
+export const metadata = {
+  title: "Notes",
+  description: "My thoughts on software development, life, and more.",
+};
+
 export default function NotesPage() {
   return (
     <section>
@@ -13,7 +18,7 @@ export default function NotesPage() {
         <BlurFade delay={BLUR_FADE_DELAY * 2 + id * 0.05} key={note.slug + id}>
           <NoteCard
             no={id + 1}
-            title={note.title}
+            title={note?.title || note.brief}
             description={note.brief} period={""} />
           {/* <Link
             className="flex flex-col space-y-1 mb-4"

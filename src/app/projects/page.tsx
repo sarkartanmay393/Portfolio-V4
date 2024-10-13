@@ -3,10 +3,15 @@ import { DATA } from "@/services/resume";
 import { BLUR_FADE_DELAY } from "@/lib/constants";
 import { ProjectCard } from "@/components/project-card";
 
+export const metadata = {
+  title: "Project",
+  description: "My side projects.",
+};
+
 export default function ProjectsPage() {
     return (
         <section id="projects">
-        <div className="space-y-12 w-full py-12">
+        <div className="space-y-12 w-full py-0">
           <BlurFade delay={BLUR_FADE_DELAY * 11}>
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2">
