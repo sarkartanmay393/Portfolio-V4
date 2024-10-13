@@ -1,6 +1,6 @@
 import { ImageResponse } from 'next/og';
 
-const origin = process.env.NEXT_PUBLIC_ORIGIN;
+// const origin = process.env.NEXT_PUBLIC_ORIGIN;
 
 export async function GET() {
   return new ImageResponse(
@@ -15,13 +15,13 @@ export async function GET() {
           justifyContent: 'center',
         }}
       >
-        <img
+        {/* <img
           src={origin + `/screenshot.png`}
           alt="me_screenshot"
           width={890}
           height={454}
           style={{ display: 'block', width: '100%', height: '100%' }}
-        />
+        /> */}
       </div>
     ),
     {

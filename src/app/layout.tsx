@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     siteName: `${DATA.name}`,
     locale: "en_US",
     type: "website",
-    images: '/api/og',
+    images: '/screenshot.png',
   },
   robots: {
     index: true,
