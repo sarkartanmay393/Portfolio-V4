@@ -15,7 +15,7 @@ export default function NotesPage() {
         <h1 className="font-medium text-2xl mb-8 tracking-tighter">notes</h1>
       </BlurFade>
       {DATA.notes.map((note, id) => (
-        <BlurFade delay={BLUR_FADE_DELAY * 2 + id * 0.05} key={note.slug + id}>
+        <BlurFade delay={BLUR_FADE_DELAY * 2 + id * 0.05} key={(note as any)?.slug + id}>
           <NoteCard
             no={id + 1}
             title={note?.title || note.brief}
