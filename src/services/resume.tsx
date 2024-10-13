@@ -77,7 +77,7 @@ export const DATA = {
       badges: [],
       location: "Bangalore, Karnataka, India",
       title: "Software Engineer Intern",
-      logoUrl: "/nirmata.png",
+      logoUrl: "/nirmata.webp",
       start: "Jul 2024",
       end: "Present",
       description:
@@ -101,7 +101,7 @@ export const DATA = {
       badges: [],
       location: "Remote",
       title: "Software Engineer Intern",
-      logoUrl: "/corider.png",
+      logoUrl: "/corider.webp",
       start: "Dec",
       end: "Mar 2024",
       description:
@@ -113,7 +113,7 @@ export const DATA = {
       badges: [],
       location: "Remote",
       title: "Frontend Developer",
-      logoUrl: "/unrealfinance.png",
+      logoUrl: "/unrealfinance.webp",
       start: "Feb",
       end: "Nov 2023",
       description:
@@ -134,7 +134,7 @@ export const DATA = {
       school: "Dhupguri High School",
       href: "https://physics.mypg.org.in/",
       degree: "Higher Secondary in Science",
-      logoUrl: "/dhs.png",
+      logoUrl: "/dhs.webp",
       start: "2018",
       end: "2020",
     },
