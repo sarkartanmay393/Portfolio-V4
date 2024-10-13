@@ -1,3 +1,5 @@
+'use client';
+
 import BlurFade from "@/components/magicui/blur-fade";
 import BlurFadeText from "@/components/magicui/blur-fade-text";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -7,12 +9,16 @@ import Markdown from "react-markdown";
 import { BLUR_FADE_DELAY } from "@/lib/constants";
 import { HackathonCard } from "@/components/hackathon-card";
 import { cn } from "@/lib/utils";
-import WorkExperiencePage from "./workexperience/page";
-import EducationPage from "./education/page";
+import { ResumeCard } from "@/components/resume-card";
+import Link from "next/link";
+import { Separator } from "@/components/ui/separator";
+import { DockIcon } from "@/components/magicui/dock";
+import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
+import { buttonVariants } from "@/components/ui/button";
 
 export default function Page() {
   return (
-    <main className="flex flex-col min-h-[100dvh] space-y-10">
+    <main className="flex flex-col min-h-[100dvh] space-y-8">
       <section id="hero">
         <div className="mx-auto w-full max-w-2xl space-y-8">
           <div className="gap-2 flex justify-between">
@@ -48,7 +54,7 @@ export default function Page() {
           </Markdown>
         </BlurFade>
       </section>
-      
+
       <section id="skills">
         <div className="flex min-h-0 flex-col gap-y-3">
           <BlurFade delay={BLUR_FADE_DELAY * 9}>
@@ -108,8 +114,105 @@ export default function Page() {
         </div>
       </section>
 
-      <WorkExperiencePage />
-      <EducationPage />
+      <section id="work">
+        <div className="flex min-h-0 flex-col gap-y-3">
+          <BlurFade delay={BLUR_FADE_DELAY * 5}>
+            <h2 className="text-xl font-bold">Work Experience</h2>
+          </BlurFade>
+          {DATA.work.map((work, id) => (
+            <BlurFade
+              key={work.company}
+              delay={BLUR_FADE_DELAY * 6 + id * 0.05}
+            >
+              <ResumeCard
+                key={work.company}
+                logoUrl={work.logoUrl}
+                altText={work.company}
+                title={work.company}
+                subtitle={work.title}
+                href={work.href}
+                badges={work.badges}
+                period={`${work.start} - ${work.end ?? "Present"}`}
+                description={work.description}
+              />
+            </BlurFade>
+          ))}
+        </div>
+      </section>
+
+      <section id="education">
+        <div className="flex min-h-0 flex-col gap-y-3">
+          <BlurFade delay={BLUR_FADE_DELAY * 7}>
+            <h2 className="text-xl font-bold">Education</h2>
+          </BlurFade>
+          {DATA.education.map((education, id) => (
+            <BlurFade
+              key={education.school}
+              delay={BLUR_FADE_DELAY * 8 + id * 0.05}
+            >
+              <ResumeCard
+                key={education.school}
+                href={education.href}
+                logoUrl={education.logoUrl}
+                altText={education.school}
+                title={education.school}
+                subtitle={education.degree}
+                period={`${education.start} - ${education.end}`}
+              />
+            </BlurFade>
+          ))}
+        </div>
+      </section>
+
+      <section id="contact">
+        <Separator orientation="horizontal" className="py-[0.5px]" />
+        <div className="grid items-center justify-center gap-4 px-4 text-center pt-6 mb-2">
+          <BlurFade delay={BLUR_FADE_DELAY * 16}>
+            <div className="space-y-1">
+              <div className="inline-block rounded-lg bg-foreground text-background px-3 py-1 text-sm">
+                Contact
+              </div>
+              <div className="flex gap-2 justify-center items-center">
+              <h2 className="text-xl font-bold tracking-tighter sm:text-2xl">
+                Get in Touch:
+              </h2>
+              <div className="">
+                {Object.entries(DATA.contact.social)
+                  .filter(([_, social]) => social.navbar)
+                  .map(([name, social]) => (
+                    <Tooltip key={name}>
+                      <TooltipTrigger asChild>
+                        <Link
+                          href={social.url}
+                          className={cn(
+                            buttonVariants({ variant: "ghost", size: "icon" }),
+                            "size-12"
+                          )}
+                        >
+                          <social.icon className="size-4" />
+                        </Link>
+                      </TooltipTrigger>
+                      <TooltipContent>
+                        <p>{name}</p>
+                      </TooltipContent>
+                    </Tooltip>
+                  ))}
+              </div>
+              </div>
+              <p className="mx-auto max-w-[600px] text-muted-foreground md:text-lg/relaxed lg:text-base/relaxed xl:text-base/relaxed">
+                Want to chat? Just shoot me a dm{" "}
+                <Link
+                  href={DATA.contact.social.x.url}
+                  className="text-blue-500 hover:underline"
+                >
+                  with a direct question on twitter
+                </Link>{" "}
+                and I&apos;ll respond whenever I can.
+              </p>
+            </div>
+          </BlurFade>
+        </div>
+      </section>
 
     </main>
   );

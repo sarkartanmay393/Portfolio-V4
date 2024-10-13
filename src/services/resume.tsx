@@ -29,7 +29,7 @@ export const DATA = {
   ],
   navbar: [
     { href: "/", icon: HomeIcon, label: "about" },
-    { href: "/blog", icon: NotebookIcon, label: "blog" },
+    { href: "/blogs", icon: NotebookIcon, label: "blogs" },
     { href: "/projects", icon: Computer, label: "projects" },
     { href: "/notes", icon: BookOpenText, label: "notes" },
   ],

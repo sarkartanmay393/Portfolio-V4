@@ -63,6 +63,7 @@ Dock.displayName = "Dock";
 
 export interface DockIconProps {
   size?: number;
+  initWidth?: number;
   magnification?: number;
   distance?: number;
   mousex?: any;
@@ -73,6 +74,7 @@ export interface DockIconProps {
 
 const DockIcon = ({
   size,
+  initWidth = 40,
   magnification = DEFAULT_MAGNIFICATION,
   distance = DEFAULT_DISTANCE,
   mousex,
@@ -90,12 +92,12 @@ const DockIcon = ({
   let widthSync = useTransform(
     distanceCalc,
     [-distance, 0, distance],
-    [40, magnification, 40]
+    [initWidth, magnification, initWidth]
   );
 
   let width = useSpring(widthSync, {
     mass: 0.1,
-    stiffness: 150,
+    stiffness: initWidth === 40 ? 120 : 0,
     damping: 12,
   });
 
