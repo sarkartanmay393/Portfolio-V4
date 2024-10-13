@@ -18,6 +18,8 @@ export async function GET() {
         <img
           src={origin + `/screenshot.png`}
           alt="me_screenshot"
+          width={890}
+          height={454}
           style={{ display: 'block', width: '100%', height: '100%' }}
         />
       </div>
