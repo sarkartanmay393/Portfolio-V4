@@ -34,7 +34,7 @@ export default function Page() {
             </div>
             <BlurFade delay={BLUR_FADE_DELAY}>
               <Avatar className="size-28 border">
-                <AvatarImage loading="lazy" alt={DATA.name} src={DATA.avatarUrl} />
+                <AvatarImage alt={DATA.name} src={DATA.avatarUrl} />
                 <AvatarFallback>{DATA.initials}</AvatarFallback>
               </Avatar>
             </BlurFade>
@@ -166,7 +166,7 @@ export default function Page() {
         <div className="grid items-center justify-center gap-4 px-4 text-center pt-6 mb-2">
           <BlurFade delay={BLUR_FADE_DELAY * 16}>
             <div className="space-y-2">
-              <Button asChild className="rounded-lg bg-foreground text-background text-xs" size="sm" variant="outline">
+              <Button name="download-resume" asChild className="rounded-lg bg-foreground text-background text-xs" size="sm" variant="outline">
                 <Link href="https://dub.sh/tanmays-resume" download className="text-xs">
                   Download Resume
                 </Link>
@@ -188,7 +188,7 @@ export default function Page() {
                               "size-8"
                             )}
                           >
-                            <social.icon className="size-4" />
+                            <social.icon className="size-4" aria-label={social.name} />
                           </Link>
                         </TooltipTrigger>
                         <TooltipContent>

@@ -14,6 +14,7 @@ export const ModeToggle = forwardRef<HTMLButtonElement, ButtonProps>((props, ref
       variant="ghost"
       type="button"
       size="icon"
+      name="theme-toggle"
       className="px-2"
       onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
     >

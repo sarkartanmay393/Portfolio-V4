@@ -21,6 +21,7 @@ export default function Navbar() {
             <Tooltip>
               <TooltipTrigger asChild>
                 <Link
+                  aria-label={item.label}
                   href={item.href}
                   className={cn(
                     buttonVariants({ variant: "ghost", size: "icon" }),
@@ -83,6 +84,7 @@ export function NavbarBigScreen() {
         {DATA.navbar.map((item) => (
           <DockIcon key={item.href} magnification={0} distance={0} initWidth={120}>
             <Link
+              aria-label={item.label}
               href={item.href}
               className={cn(
                 buttonVariants({ variant: "ghost", size: 'default' }),
