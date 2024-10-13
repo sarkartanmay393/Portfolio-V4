@@ -3,7 +3,7 @@ import { BookOpenText, Computer, HomeIcon, NotebookIcon } from "lucide-react";
 
 export const DATA = {
   name: "Tanmay Sarkar",
-  initials: "TSX",
+  initials: "TSR",
   url: "https://tanmaysarkar.vercel.app",
   location: "Dhupguri, West Bengal, India",
   locationLink: "https://www.google.com/maps/place/dhupguri",
@@ -15,6 +15,7 @@ export const DATA = {
   skills: [
     "JavaScript",
     "TypeScript",
+    "Python",
     "React.js",
     "Node.js",
     "Next.js",
@@ -77,7 +78,7 @@ export const DATA = {
       location: "Bangalore, Karnataka, India",
       title: "Software Engineer Intern",
       logoUrl: "/nirmata.png",
-      start: "July 2024",
+      start: "Jul 2024",
       end: "Present",
       description:
         "Developed tools for the CNCF ecosystem, improved performance by 20%, and enhanced user satisfaction by 15%. Redesigned the user interface using JavaScript, React.js, Docker, and AWS.",
@@ -88,9 +89,9 @@ export const DATA = {
       badges: [],
       location: "Bangalore, Karnataka, India",
       title: "Software Engineer",
-      logoUrl: "/cheerio.png",
-      start: "March 2024",
-      end: "July 2024",
+      logoUrl: "/cheerioai.png",
+      start: "Mar",
+      end: "Jul 2024",
       description:
         "Revamped UI, leading to a 25% increase in user engagement, and implemented email and notification services using AWS SNS and SES for over 5,000 users.",
     },
@@ -101,8 +102,8 @@ export const DATA = {
       location: "Remote",
       title: "Software Engineer Intern",
       logoUrl: "/corider.png",
-      start: "December 2023",
-      end: "March 2024",
+      start: "Dec",
+      end: "Mar 2024",
       description:
         "Developed a PWA using React.js, improving loading speed by 30%, and enhanced real-time functionality using Flask and AWS.",
     },
@@ -113,8 +114,8 @@ export const DATA = {
       location: "Remote",
       title: "Frontend Developer",
       logoUrl: "/unrealfinance.png",
-      start: "February 2023",
-      end: "November 2023",
+      start: "Feb",
+      end: "Nov 2023",
       description:
         "Contributed to user acquisition by developing a landing page with Next.js, increasing users by 50%. Integrated payment features using Stripe API and built a CI/CD pipeline.",
     },
@@ -127,13 +128,13 @@ export const DATA = {
       logoUrl: "/cgec.png",
       start: "2020",
       end: "2024",
-      gpa: "8.3/10",
+      gpa: "8.8/10",
     },
     {
       school: "Dhupguri High School",
-      href: "#",
+      href: "https://physics.mypg.org.in/",
       degree: "Higher Secondary in Science",
-      logoUrl: "/dhsh.png",
+      logoUrl: "/dhs.png",
       start: "2018",
       end: "2020",
     },
