@@ -1,8 +1,8 @@
-<!-- <div align="center">
-<img alt="Portfolio" src="https://github.com/dillionverma/portfolio/assets/16860528/57ffca81-3f0a-4425-b31d-094f61725455" width="90%">
-</div> -->
-
 # Portfolio V4
+
+<div align="center">
+   <img alt="Portfolio" src="/public/screenshot.png" width="90%">
+</div>
 
 Built with next.js, [shadcn/ui](https://ui.shadcn.com/), and [magic ui](https://magicui.design/), deployed on Vercel.
 
@@ -12,6 +12,7 @@ Template from [dillionverma](https://github.com/dillionverma/portfolio/).
 
 - Setup only takes a few minutes by editing the [single config file](./src/data/resume.tsx)
 - Built using Next.js 14, React, Typescript, Shadcn/UI, TailwindCSS, Framer Motion, Magic UI
+- Additions: PostHog, OG, RSS, and more
 - Includes a blog
 - Responsive for different devices
 - Optimized for Next.js and Vercel
@@ -33,16 +34,18 @@ Template from [dillionverma](https://github.com/dillionverma/portfolio/).
 3. Install dependencies:
 
    ```bash
-   pnpm install
+   npm install
    ```
 
-4. Start the local Server:
+4. Open the [.env.example](/.env.example), copy to `cp .env.example .env` and make changes
+
+5. Start the local Server:
 
    ```bash
-   pnpm dev
+   npm dev
    ```
 
-5. Open the [Config file](./src/services/resume.tsx) and make changes
+6. Open the [Config file](./src/services/resume.tsx) and make changes
 
 # License
 
