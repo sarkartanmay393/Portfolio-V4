@@ -12,6 +12,7 @@ import Link from "next/link";
 import { Separator } from "@/components/ui/separator";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 import { Button, buttonVariants } from "@/components/ui/button";
+import { CoolMode } from "@/components/ui/cool-mode";
 
 export default function Page() {
   return (

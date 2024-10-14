@@ -45,6 +45,7 @@ const Dock = React.forwardRef<HTMLDivElement, DockProps>(
       });
     };
 
+    const color = ["#A07CFE", "#FE8FB5", "#FFBE7B"];
     return (
       <motion.div
         ref={ref}
