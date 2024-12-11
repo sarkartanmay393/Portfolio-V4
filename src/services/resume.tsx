@@ -155,6 +155,13 @@ export const DATA = {
           icon: '',
           type: "Github",
         },
+      ],
+      dates: "Nov 2024 – Present",
+      active: true,
+      description:
+        "",
+      technologies: ["TypeScript", "Next.js", "Supabase", "OpenAI"],
+    },
     {
       title: "GeoPulse",
       href: "https://geo-pulse.vercel.app",
