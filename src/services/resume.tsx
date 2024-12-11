@@ -8,14 +8,15 @@ export const DATA = {
   location: "Dhupguri, West Bengal, India",
   locationLink: "https://www.google.com/maps/place/dhupguri",
   description:
-    "Software Engineer with a passion for AI, full-stack development, and building impactful applications that solve real-world problems.",
+    "Software Engineer with a passion for Web3, AI and, full-stack development, and building impactful applications that solve real-world problems.",
   summary:
-    "I am a dedicated Software Engineer with over a year of experience in developing user-focused web applications. Currently, I’m working as a Software Engineer Intern at Nirmata, where I’ve contributed to CNCF ecosystem projects and user interface redesigns. My experience includes internships at Cheerio AI, CoRider, and Unreal Finance, where I improved user engagement, optimized performance, and implemented key functionalities. I am pursuing a B.Tech in Computer Science at Cooch Behar Government Engineering College, with a focus on JavaScript, React.js, Docker, and AWS.",
+    "I am a dedicated Software Engineer with over a year of experience developing user-focused web applications. Currently, I’m working as a Software Engineer at Nirmata, where I’ve contributed to CNCF ecosystem projects and user interface redesigns. My experience includes internships at Cheerio AI, CoRider, and Unreal Finance, where I improved user engagement, optimized performance, and implemented key functionalities. I am pursuing a B.Tech in Computer Science at Cooch Behar Government Engineering College, with a focus on JavaScript, Go, React.js, Docker, and AWS.",
   avatarUrl: "/me.jpeg",
   skills: [
     "JavaScript",
-    "TypeScript",
     "Python",
+    "Go",
+    "Solidy",
     "React.js",
     "Node.js",
     "Next.js",
@@ -76,12 +77,12 @@ export const DATA = {
       href: "https://nirmata.com",
       badges: [],
       location: "Bangalore, Karnataka, India",
-      title: "Software Engineer Intern",
+      title: "Software Engineer",
       logoUrl: "/nirmata.webp",
       start: "Jul 2024",
       end: "Present",
       description:
-        "Developed tools for the CNCF ecosystem, improved performance by 20%, and enhanced user satisfaction by 15%. Redesigned the user interface using JavaScript, React.js, Docker, and AWS.",
+        "Developed advanced tools for the Cloud Native ecosystem, resulting in a 15% improvement in performance and an increase in user satisfaction. Developed Policy Studio that generates AI policies and provides a UI. Redesigned and implemented a new user interface using the MVC model, improving user engagement and simplifying navigation.",
     },
     {
       company: "Cheerio",
@@ -93,7 +94,7 @@ export const DATA = {
       start: "Mar",
       end: "Jul 2024",
       description:
-        "Revamped UI, leading to a 25% increase in user engagement, and implemented email and notification services using AWS SNS and SES for over 5,000 users.",
+        "Revamped the user interface, leading to an increase in user engagement and on-boarding new users. Developed and integrated automated email and notification services using AWS SNS and SES, improving communication efficiency for users.",
     },
     {
       company: "CoRider",
@@ -105,7 +106,7 @@ export const DATA = {
       start: "Dec",
       end: "Mar 2024",
       description:
-        "Developed a PWA using React.js, improving loading speed by 30%, and enhanced real-time functionality using Flask and AWS.",
+        "Designed and built a Progressive Web App (PWA) using React.js, resulting in a 30% improvement in loading speed and increased user satisfaction. Developed real-time routing and socket functionality for the Flask backend, enhancing the application’s communication capabilities. Maintained the two codebases on EC2 Instances with Docker.",
     },
     {
       company: "Unreal Finance",
@@ -117,7 +118,7 @@ export const DATA = {
       start: "Feb",
       end: "Nov 2023",
       description:
-        "Contributed to user acquisition by developing a landing page with Next.js, increasing users by 50%. Integrated payment features using Stripe API and built a CI/CD pipeline.",
+        "Attracted new users by developing a high-conversion landing page using Next.js. Created CI/CD pipeline with GitHub Actions, EC2 Instance. Developed and integrated secure payment features using Stripe API and web-hooks, streamlining transactions, and improving user trust.",
     },
   ],
   education: [
@@ -140,6 +141,20 @@ export const DATA = {
     },
   ],
   projects: [
+    {
+      title: "ArticleAI",
+      href: "https://articleai.vercel.app",
+      links: [
+        {
+          href: "https://articleai.vercel.app",
+          icon: '',
+          type: "Website",
+        },
+        {
+          href: "https://github.com/sarkartanmay393/article.ai",
+          icon: '',
+          type: "Github",
+        },
     {
       title: "GeoPulse",
       href: "https://geo-pulse.vercel.app",
