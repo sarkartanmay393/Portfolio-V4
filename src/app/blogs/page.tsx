@@ -1,38 +1,14 @@
-import BlurFade from "@/components/magicui/blur-fade";
-import { formatDate } from "@/lib/utils";
-import { getBlogPosts } from "@/services/blog";
-import Link from "next/link";
+import { getBlogPosts, getAllTags } from "@/services/blog";
+import BlogList from "@/components/blog-list";
 
 export const metadata = {
   title: "Blog",
   description: "My blogs on software development, life, and more.",
 };
 
-const BLUR_FADE_DELAY = 0.04;
-
 export default async function BlogPage() {
   const posts = await getBlogPosts();
+  const allTags = await getAllTags();
 
-  return (
-    <section>
-      <BlurFade delay={BLUR_FADE_DELAY}>
-        <h1 className="font-medium text-2xl mb-8 tracking-tighter">blogs</h1>
-      </BlurFade>
-      {posts.map((post, id) => (
-          <BlurFade delay={BLUR_FADE_DELAY * 2 + id * 0.05} key={post.slug + id}>
-            <Link
-              className="flex flex-col space-y-1 mb-4"
-              href={post.slug ? `/blogs/${post.slug}` : post.metadata.url}
-            >
-              <div className="w-full flex flex-col">
-                <p className="tracking-tight">{post.metadata.title}</p>
-                <p className="h-6 text-xs text-muted-foreground">
-                  {formatDate(post.metadata.publishedAt)}
-                </p>
-              </div>
-            </Link>
-          </BlurFade>
-        ))}
-    </section>
-  );
+  return <BlogList initialPosts={posts} allTags={allTags} />;
 }

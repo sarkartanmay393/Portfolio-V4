@@ -60,6 +60,14 @@ export default async function Blog({
     notFound();
   }
 
+const getDate = (date: string) => {
+  return new Date(date).toLocaleString("en-us", {
+    month: "long",
+    day: "numeric",
+    year: "numeric",
+  });
+};
+
   return (
     <section id="blog">
       <script
@@ -90,8 +98,13 @@ export default async function Blog({
       <div className="flex justify-between items-center mt-2 mb-8 text-sm max-w-[650px]">
         <Suspense fallback={<p className="h-5" />}>
           <p className="text-sm text-neutral-600 dark:text-neutral-400">
-            {formatDate(post.metadata.publishedAt)}
+            {getDate(post.metadata.publishedAt)}
           </p>
+          {post.metadata.readTimeInMinutes && (
+            <span className="text-xs text-blue-500/80 dark:text-blue-400/80 tracking-tighter">
+              {post.metadata.readTimeInMinutes} min read
+            </span>
+          )}
         </Suspense>
       </div>
       

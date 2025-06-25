@@ -13,6 +13,7 @@ type Metadata = {
   publishedAt: string;
   summary: string;
   image?: string;
+  tags?: string[];
 };
 
 function getMDXFiles(dir: string) {
@@ -24,7 +25,6 @@ export async function markdownToHTML(markdown: string) {
     .use(remarkParse)
     .use(remarkRehype)
     .use(rehypePrettyCode, {
-      // https://rehype-pretty.pages.dev/#usage
       theme: {
         light: "min-light",
         dark: "min-dark",
@@ -41,7 +41,6 @@ export async function getPost(slug: string) {
   const filePath = path.join("content", `${slug}.mdx`);
   let source = fs.readFileSync(filePath, "utf-8");
   const { content: rawContent, data: metadata } = matter(source);
-  // console.log('metadata', rawContent);
   const content = await markdownToHTML(rawContent);
   return {
     source: content,
@@ -173,13 +172,50 @@ async function _getHashnodeBlogs() {
   return format.blogs;
 }
 
-export async function getBlogPosts() {
-  return [... await getAllPosts(path.join(process.cwd(), "content"))].sort((a, b) => {
-    if (
-      new Date(a.metadata.publishedAt) > new Date(b.metadata.publishedAt)
-    ) {
+export async function getAllTags() {
+  const posts = await getAllPosts(path.join(process.cwd(), "content"));
+  const allTags = new Set<string>();
+  
+  posts.forEach(post => {
+    if (post.metadata.tags) {
+      post.metadata.tags.forEach((tag: string) => allTags.add(tag));
+    }
+  });
+  
+  return Array.from(allTags).sort();
+}
+
+export async function getBlogPosts(searchQuery?: string, selectedTags?: string[]) {
+  const allPosts = await getAllPosts(path.join(process.cwd(), "content"));
+  
+  let filteredPosts = allPosts.filter((post) => 
+    post.source !== '' && post.metadata.publishedAt
+  );
+
+  // Filter by search query
+  if (searchQuery && searchQuery.trim()) {
+    const query = searchQuery.toLowerCase();
+    filteredPosts = filteredPosts.filter(post => 
+      post.metadata.title.toLowerCase().includes(query) ||
+      (post.metadata.summary && post.metadata.summary.toLowerCase().includes(query)) ||
+      (post.metadata.tags && post.metadata.tags.some((tag: string) => tag.toLowerCase().includes(query)))
+    );
+  }
+
+  // Filter by selected tags
+  if (selectedTags && selectedTags.length > 0) {
+    filteredPosts = filteredPosts.filter(post => 
+      post.metadata.tags && 
+      selectedTags.every(selectedTag => 
+        post.metadata.tags!.includes(selectedTag)
+      )
+    );
+  }
+
+  return filteredPosts.sort((a, b) => {
+    if (new Date(a.metadata.publishedAt) > new Date(b.metadata.publishedAt)) {
       return -1;
     }
     return 1;
-  }).filter((post) => post.source !== '' && post.metadata.publishedAt);
+  });
 }

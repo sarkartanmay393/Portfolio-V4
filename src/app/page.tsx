@@ -3,7 +3,6 @@ import BlurFadeText from "@/components/magicui/blur-fade-text";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { DATA } from "@/services/resume";
-import Markdown from "react-markdown";
 import { BLUR_FADE_DELAY } from "@/lib/constants";
 import { HackathonCard } from "@/components/hackathon-card";
 import { cn } from "@/lib/utils";
@@ -11,22 +10,29 @@ import Link from "next/link";
 import { Separator } from "@/components/ui/separator";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 import { buttonVariants } from "@/components/ui/button";
+import { WordRotate } from "@/components/magicui/word-rotate";
+import { LinkPreview } from "@/components/ui/link-preview";
+
+const GREETINGS = ["Hello", "नमस्ते", "你好", "Hola", "Bonjour", "Ciao", "Hallo"];
 
 export default function Page() {
+  const greetings = GREETINGS;
+
   return (
     <main className="flex flex-col min-h-[100dvh] space-y-8">
       <section id="hero">
         <div className="mx-auto w-full max-w-2xl space-y-8">
           <div className="gap-2 flex justify-between">
             <div className="flex-col flex flex-1 space-y-2.5">
-              <BlurFadeText
+              <BlurFade
                 delay={BLUR_FADE_DELAY}
-                className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none"
-                yOffset={8}
-                text={`Hi, I'm ${DATA.name.split(" ")[0]} 👋`}
-              />
+                className="transition-all duration-300 text-3xl font-bold tracking-tighter sm:text-5xl xl:text-5xl/none"
+                yOffset={4}
+              >
+                  <WordRotate words={greetings} />, I&apos;m {DATA.name.split(" ")[0]} 👋
+              </BlurFade>
               <BlurFadeText
-                className="max-w-[600px] md:text-xl prose text-pretty"
+                className="max-w-[600px] md:text-xl text-black/80 dark:text-white/80"
                 delay={BLUR_FADE_DELAY}
                 text={DATA.description}
               />
@@ -43,24 +49,31 @@ export default function Page() {
       
       <section id="about">
         <BlurFade delay={BLUR_FADE_DELAY * 3}>
-          <h2 className="text-xl font-bold">About</h2>
+          <h2 className="text-xl font-semibold">About</h2>
         </BlurFade>
         <BlurFade delay={BLUR_FADE_DELAY * 4}>
-          <Markdown className="prose max-w-full text-pretty font-sans text-base text-muted-foreground dark:prose-invert">
-            {DATA.summary}
-          </Markdown>
+          <span className="prose max-w-full text-pretty font-sans text-base text-foreground/70 dark:prose-invert">
+            Have experience of developing web applications, servers, ci/cd pipelines and AI workflows. I post nonsense on
+            <LinkPreview
+              url={DATA.contact.social.x.url}
+              imageSrc="/x-account-screenshot.png"
+              isStatic
+              className="inline-block px-1 font-semibold prose text-pretty no-underline font-sans text-sm dark:prose-invert"
+            >X/Twitter</LinkPreview>
+            as well, and share other content across my socials. Other times, I ride motorcycles, make videos, play digital games and help my father in his business.
+          </span>
         </BlurFade>
       </section>
 
       <section id="skills">
         <div className="flex min-h-0 flex-col gap-y-3">
           <BlurFade delay={BLUR_FADE_DELAY * 9}>
-            <h2 className="text-xl font-bold">Tech Skills</h2>
+            <h2 className="text-xl font-semibold">Tech Skills</h2>
           </BlurFade>
           <div className="flex flex-wrap gap-1">
             {DATA.skills.map((skill, id) => (
               <BlurFade key={skill} delay={BLUR_FADE_DELAY * 10 + id * 0.05}>
-                <Badge key={skill}>{skill}</Badge>
+                <Badge key={skill} variant="outline">{skill}</Badge>
               </BlurFade>
             ))}
           </div>
@@ -114,7 +127,7 @@ export default function Page() {
       <section id="github-stats">
         <div className="space-y-6 w-full">
           <BlurFade delay={BLUR_FADE_DELAY * 13}>
-            <h2 className="text-xl font-bold">Stats
+            <h2 className="text-xl font-semibold">Stats
               <span className="text-sm text-muted-foreground font-light pl-2 pb-1.5">(most of contributes are now in company github)</span>
             </h2>
           </BlurFade>

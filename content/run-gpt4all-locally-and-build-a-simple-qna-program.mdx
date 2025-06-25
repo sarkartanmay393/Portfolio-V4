@@ -7,6 +7,7 @@ url: "https://tanmaysarkar.hashnode.dev/run-gpt4all-locally-and-build-a-simple-q
 originalPost: "https://tanmaysarkar.hashnode.dev/run-gpt4all-locally-and-build-a-simple-qna-program"
 readTimeInMinutes: 5
 views: 256
+tags: ["AI", "Python", "Tutorial"]
 coverImage:
   url: "https://cdn.hashnode.com/res/hashnode/image/upload/v1689161561992/d6be646d-47b0-4c73-bbcc-245a6dccad1f.png"
 ---
@@ -62,7 +63,7 @@ The underlying algorithm that takes place is Quantization, where it maps every c
     python3 convert.py models/gpt4all-lora-quantized-ggml.bin
     ```
     
-    ![terminal view while convert the model weight](https://cdn.hashnode.com/res/hashnode/image/upload/v1689158851633/614507a6-7aa8-4732-aae6-28b189c37524.png align="center")
+    ![terminal view while convert the model weight](https://cdn.hashnode.com/res/hashnode/image/upload/v1689158851633/614507a6-7aa8-4732-aae6-28b189c37524.png)
     
     Our conversion to a newer format is now successfully done, you can check that out in the `/models/` directory. There must be a new file named similar to `ggml-model-q4_0.bin`. Now, we can build a simple program using GPT4ALL.
     
@@ -103,7 +104,7 @@ The underlying algorithm that takes place is Quantization, where it maps every c
     
 6. **Running our program:** You can change the `q` variable to ask any question you want. Try out different questions, and see our this model performs on your machine. I have an MBA 8GB with 256GB SDD, and I still think a 16GB version would do a lot better in terms of faster output generation time.
     
-    ![running the gpt4all program](https://cdn.hashnode.com/res/hashnode/image/upload/v1689159222633/2405ba6c-daf5-43c8-aa3d-e91fbd325b7e.png align="center")
+    ![running the gpt4all program](https://cdn.hashnode.com/res/hashnode/image/upload/v1689159222633/2405ba6c-daf5-43c8-aa3d-e91fbd325b7e.png)
     
     ```bash
     pip3 test.py # will run the program
@@ -113,13 +114,13 @@ The underlying algorithm that takes place is Quantization, where it maps every c
     
 7. **Understanding the Output:** Let us see the output first.
     
-    ![](https://cdn.hashnode.com/res/hashnode/image/upload/v1689159395049/78baba20-73d3-48cb-9d45-b34068e1a239.png align="center")
+    ![](https://cdn.hashnode.com/res/hashnode/image/upload/v1689159395049/78baba20-73d3-48cb-9d45-b34068e1a239.png)
     
     This 100 words output took a lot of time on my machine, if there is any trick to make it faster, please do tell us in the comments.
     
     In the code, we used the `StreamingStdOutCallbackHandler` and `verbose=True` but why? It is because we want to see the output in real-time and with a lot of extra system details.
     
-    ![](https://cdn.hashnode.com/res/hashnode/image/upload/v1689159898658/fb66afba-862b-4663-9017-df29b9d47926.png align="center")
+    ![](https://cdn.hashnode.com/res/hashnode/image/upload/v1689159898658/fb66afba-862b-4663-9017-df29b9d47926.png)
     
 
 ### Conclusion ⏰
