@@ -1,0 +1,191 @@
+---
+id: "635a0cf67366ac150ec50f1f"
+title: "Deploy your containerized Go Web Application"
+brief: "Welcome back fellows 👋🏻\nToday I am back with a new article on Go, but this is slightly in production side. Today we are going to deploy a simple containerized Go web app on Heroku. I am assuming, you are well aware about how web servers are created..."
+publishedAt: "2022-10-27T04:45:42.617Z"
+url: "https://tanmaysarkar.hashnode.dev/deploy-your-containerized-go-web-application"
+originalPost: "https://tanmaysarkar.hashnode.dev/deploy-your-containerized-go-web-application"
+readTimeInMinutes: 6
+views: 290
+coverImage:
+  url: "https://cdn.hashnode.com/res/hashnode/image/upload/v1666810316079/8b-KW6oLp.png"
+---
+
+## Welcome back fellows 👋🏻
+  
+Today I am back with a new article on [Go](https://go.dev/ ), but this is slightly in production side. Today we are going to deploy a simple containerized Go web app on [Heroku](https://heroku.com/ ). I am assuming, you are well aware about how web servers are created in Go and how they work. That means, now you have created your own web server which can serve us a website locally, but you want to make it available for public with a target url right. How do you do that ? The answer is been coveyed in this blog. So start reading and following the learn more links to get to the topics that are neccessary for our deployment process.
+
+
+![04.image.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1666810355204/RSFVlSjhJ.png align="left")
+  
+### What we will be doing today ? 🧐
+  
+1. Write a *`Dockerfile`*
+2. Write a *`heroku.yml`*
+3. Deploy our app on [Heroku](https://heroku.com/ ).
+  
+### Prerequisite ✅
+  
+1. [**Go**](https://go.dev/ )
+2. [**Docker**](https://www.docker.com/get-started/)
+  
+### Let us not waste time ⏳
+  
+If you don't know much about Docker then you should learn about it now and for today's tutorial you can just install docker and play it with a little. I have suggested a video for a brief understanding about Docker, check that out definitely. Now, I am supposing you are aware of Docker and have basic knowledge of it. Because we are writing a Dockerfile and if you don't even know what Docker is, then it's not possible.
+  
+I can give you a brief introduction of Docker. It is like a virtual machine manager, that takes hardware resource from your machine and creates one or more hidden boxes inside your computer with those resources and provide a operating system in each of those boxes, this boxes are running containers, and this containers are created in docker from docker images. The goal of Docker is to make multiple isolated virtual machines in your computer.
+  
+> Learn basics of Docker before proceeding. [Learn More](https://www.docker.com/resources/what-container/)
+  
+##### Here is my project structure ⛩
+  
+```shell
+├── main.go
+├── go.mod
+├── go.sum
+├── Dockerfile [yet to write]
+├── heroku.yml [yet to write]
+└── static
+    └── index.html
+```
+  
+> *Visit my [Github repo](https://github.com/sarkartanmay393/Golang-Journey/tree/main/Web-Server) of this project to get the idea, How I build a web server and used HTML with it.*
+  
+##### We can go forward now ⛳
+  
+We will start by writing Dockerfile and end with installing Heroku CLI to deploy our app effortlessly. This will be knowledge journey and I hope after this, you will understand the deployment process of Go web applications.
+  
+- **Write `Dockerfile`**
+  
+A Dockerfile is a declarative way of automatically creating a docker image, and we will create a alpine linux container where the app will run at a specific port. ️
+  
+Create a file with this name and follow my code below,
+  
+```dockerfile
+# Using this minimal base image for our work.
+# It will consist of golang tool and nothing much more.
+FROM golang:1.19-alpine
+  
+# Setting our current directory to /app inside our base image.
+WORKDIR /app
+  
+# Copying everything from our Web-Server directory to our image's /app directory.
+COPY . .
+  
+# Now all are necessary files are in our image.
+# So we can start our commands to run the go app.
+RUN go mod download
+RUN go build main.go
+  
+# We have now a executable, named main.
+# First let us expose our docker container.
+# EXPOSE 8080
+# We hosting our app on heroku, and heroku provides a particular port
+# for us via enironment variables. And so here docker, we don't need to 
+# our container, heroku takes care of it.
+
+
+# Run the executable.
+CMD ./main
+```
+  
+> Now with a simple command `docker build -t webapp .` you will get your fully functional docker image.
+  
+
+- **Write `heroku.yml`**
+  
+This file is nothing but a declarative way of saying Heroku that here is how you build and how you run the app. This file is necessary for deploying a containerized app in Heroku automatically. This file is a manifest that defines our app and allows us to specify add-ons and config vars to use during app provisioning by Heroku.
+  
+```yml
+build:
+  docker:
+   web:
+    Dockerfile
+  
+run:
+  web:
+   ./main
+```
+
+<br>
+
+
+- **Getting started with Heroku**
+  
+Heroku is a platform as a service (PaaS) that enables developers to build, run, and operate applications entirely in the cloud. We will host our application, and it will generate a URL to our deployed app. There is three different ways of deploying on Heroku.
+  
+- Using GitHub
+- Heroku CLI
+- Container Registry
+  
+Now in this tutorial, we are gonna push our whole directory to heroku via git, and `heroku.yml` starts it's work to help heroku by telling how to build and run the application. Don't worry, I am gonna explain everything, but there is little task for you. Go and complete the mentioned prerequisite.
+  
+- Create account in [Heroku](https://heroku.com/signup) ❇️
+- Learn more about Heroku Deployments from [Docs](https://devcenter.heroku.com/categories/deployment)
+- Install [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli) ❇️
+
+<br>
+
+- **Using Heroku to Deploy**
+  
+Now we are all set to host our application front public, open project directory and follow my lead.
+
+![code editor view.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1666808068574/e7F94ufAq.png align="left")
+
+Our Git status is clean and all necessary files are committed safely on Git. Now, let us use heroku cli tool to do the rest of work. But before that, go to your [heroku dashboard](https://dashboard.heroku.com/apps) and create a app with your preferred name.
+
+
+![heroku-create-new-app.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1666808098416/AdDV_JILY.png align="left")
+
+Now, switch to terminal and command,
+
+```shell
+heroku login
+```
+
+It will take you to a website and demands for login. After successfully login, we have set our heroku app stack to container. Here is how,
+
+```shell
+heroku stack:set container -a sample-web-09
+```
+
+With `-a` alias, we specify the app that we have created earlier. Change the `sample-web-09` to your app name.
+
+Now we need to add git remote of heroku by,
+
+```shell
+heroku git:remote -a sample-web-09 
+```
+
+This is the final look after these three commands.
+
+![terminal.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1666799980109/dUoKUgkqk.png align="left")
+
+And, now the final command, but before this you may have to command `git add .` and `git commit -s -m "last push 101"` and then,
+
+```shell
+git push heroku main
+```
+
+![deploy go web.gif](https://cvws.icloud-content.com/B/AZj-fMzlVbq1EyU70qy1WSMrM6ffASyGyg7TP7V6uGeM8OCruXv92c9Y/deploy+go+web+on+heroku.gif?o=AsPdBgftt_ZcVn-Q2DSvHHc5AgiDGcg0l89dXKS8KXHy&v=1&x=3&a=CAog32qNcg4QfVpbuIR59p4muBncsvQcHpZz-s-DiZzSVvASbxCZ-PuvwTAYmdXXscEwIgEAUgQrM6ffWgT92c9Yaie0PdqZRBMgj4Fa_FQxb9WLQIkDaluouKVlZveCl9qEEhTSXm1PDRlyJ01RKNlq1CXEheOTsFklwbRcQZRuY47JgHQJMCoDCzLvG9hZf7VU0Q&e=1666819943&fl=&r=e81af322-b8c9-461e-a700-42f4b4806aed-1&k=PsUDapz2NvRsKmxE4n9LJg&ckc=com.apple.clouddocs&ckz=com.apple.CloudDocs&p=30&s=BcjvRgrkBbS8y9ALbjVrk9wdImw&cd=i)
+
+
+To directly open up your web application link,
+
+```shell
+heroku open
+```
+
+Checkout the app that I deployed in this blog, here is [sample-web-09](https://sample-web-09.herokuapp.com).
+
+
+### Finishing note 📝
+
+Hope you understood the process of deploying a Go based web server. I always try to explain things in detail, and still if you find any position where I should explain more then tell me in comments or ping me on twitter. I am always there for my article people.
+
+Thanks you everybody for being with me. New blogs on Go and other techinal topics are yet to come out in upcoming days. So stay tuned, and follow me here on [@Hashnode](https://www.hashnode.com/tanmaysarkar/).
+
+
+Follow me on 🐦 [@sarkartanmay393](https://www.twitter.com/sarkartanmay393)
+
+Mail me anytime on 📬 [hello@tanmaysarkar.tech](mailto:hello@tanmaysarkar.tech) 

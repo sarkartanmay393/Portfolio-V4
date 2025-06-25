@@ -7,11 +7,10 @@ import Markdown from "react-markdown";
 import { BLUR_FADE_DELAY } from "@/lib/constants";
 import { HackathonCard } from "@/components/hackathon-card";
 import { cn } from "@/lib/utils";
-import { ResumeCard } from "@/components/resume-card";
 import Link from "next/link";
 import { Separator } from "@/components/ui/separator";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
-import { Button, buttonVariants } from "@/components/ui/button";
+import { buttonVariants } from "@/components/ui/button";
 
 export default function Page() {
   return (
@@ -19,7 +18,7 @@ export default function Page() {
       <section id="hero">
         <div className="mx-auto w-full max-w-2xl space-y-8">
           <div className="gap-2 flex justify-between">
-            <div className="flex-col flex flex-1 space-y-1.5">
+            <div className="flex-col flex flex-1 space-y-2.5">
               <BlurFadeText
                 delay={BLUR_FADE_DELAY}
                 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none"
@@ -27,7 +26,7 @@ export default function Page() {
                 text={`Hi, I'm ${DATA.name.split(" ")[0]} 👋`}
               />
               <BlurFadeText
-                className="max-w-[600px] md:text-xl"
+                className="max-w-[600px] md:text-xl prose text-pretty"
                 delay={BLUR_FADE_DELAY}
                 text={DATA.description}
               />
@@ -41,12 +40,13 @@ export default function Page() {
           </div>
         </div>
       </section>
+      
       <section id="about">
         <BlurFade delay={BLUR_FADE_DELAY * 3}>
           <h2 className="text-xl font-bold">About</h2>
         </BlurFade>
         <BlurFade delay={BLUR_FADE_DELAY * 4}>
-          <Markdown className="prose max-w-full text-pretty font-sans text-sm text-muted-foreground dark:prose-invert">
+          <Markdown className="prose max-w-full text-pretty font-sans text-base text-muted-foreground dark:prose-invert">
             {DATA.summary}
           </Markdown>
         </BlurFade>
@@ -68,7 +68,7 @@ export default function Page() {
       </section>
 
       <section id="hackathons" className={cn(DATA.hackathons.length > 0 ? '' : 'hidden')}>
-        <div className="space-y-12 w-full py-12">
+        <div className="space-y-12 w-full">
           <BlurFade delay={BLUR_FADE_DELAY * 13}>
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2">
@@ -111,53 +111,26 @@ export default function Page() {
         </div>
       </section>
 
-      <section id="work">
-        <div className="flex min-h-0 flex-col gap-y-3">
-          <BlurFade delay={BLUR_FADE_DELAY * 5}>
-            <h2 className="text-xl font-bold">Work Experience</h2>
+      <section id="github-stats">
+        <div className="space-y-6 w-full">
+          <BlurFade delay={BLUR_FADE_DELAY * 13}>
+            <h2 className="text-xl font-bold">Stats
+              <span className="text-sm text-muted-foreground font-light pl-2 pb-1.5">(most of contributes are now in company github)</span>
+            </h2>
           </BlurFade>
-          {DATA.work.map((work, id) => (
-            <BlurFade
-              key={work.company}
-              delay={BLUR_FADE_DELAY * 6 + id * 0.05}
-            >
-              <ResumeCard
-                key={work.company}
-                logoUrl={work.logoUrl}
-                altText={work.company}
-                title={work.company}
-                subtitle={work.title}
-                href={work.href}
-                badges={work.badges}
-                period={`${work.start} - ${work.end ?? "Present"}`}
-                description={work.description}
-              />
+          <div className="grid grid-cols-1">
+            <BlurFade delay={BLUR_FADE_DELAY * 14}>
+              <div className="flex justify-center w-full">
+                <iframe
+                  src="https://ghchart.rshah.org/3b82f6/sarkartanmay393"
+                  width="100%"
+                  // height="200"
+                  className="rounded-lg"
+                  frameBorder="0"
+                />
+              </div>
             </BlurFade>
-          ))}
-        </div>
-      </section>
-
-      <section id="education">
-        <div className="flex min-h-0 flex-col gap-y-3">
-          <BlurFade delay={BLUR_FADE_DELAY * 7}>
-            <h2 className="text-xl font-bold">Education</h2>
-          </BlurFade>
-          {DATA.education.map((education, id) => (
-            <BlurFade
-              key={education.school}
-              delay={BLUR_FADE_DELAY * 8 + id * 0.05}
-            >
-              <ResumeCard
-                key={education.school}
-                href={education.href}
-                logoUrl={education.logoUrl}
-                altText={education.school}
-                title={education.school}
-                subtitle={education.degree}
-                period={`${education.start} - ${education.end}`}
-              />
-            </BlurFade>
-          ))}
+          </div>
         </div>
       </section>
 
@@ -166,11 +139,11 @@ export default function Page() {
         <div className="grid items-center justify-center gap-4 px-4 text-center pt-6 mb-2">
           <BlurFade delay={BLUR_FADE_DELAY * 16}>
             <div className="space-y-2">
-              <Button name="download-resume" asChild className="rounded-lg bg-foreground text-background text-xs" size="sm" variant="outline">
+              {/* <Button name="download-resume" asChild className="rounded-lg bg-foreground text-background text-xs" size="sm" variant="outline">
                 <Link href="https://dub.sh/tanmays-resume" download className="text-xs">
                   Download Resume
                 </Link>
-              </Button>
+              </Button> */}
               <div className="flex gap-1 justify-center items-center">
                 <h2 className="text-lg font-bold tracking-tighter sm:text-xl">
                   Get in Touch:

@@ -1,0 +1,175 @@
+---
+id: "64ca6bae2b2bb266d1a09c68"
+title: "Get Started with Low-code REST API Development using Syncloop"
+brief: "Introduction 🙋🏻‍♂️\nHey Champs, this is Tanmay again. And today's topic is a little different, in the sense We are coders but trying to embrace low-code tools also. It is not that we are trying to transition to this kind of tool but to increase prod..."
+publishedAt: "2023-08-02T14:43:58.910Z"
+url: "https://tanmaysarkar.hashnode.dev/get-started-with-no-code-rest-api-building-using-syncloop"
+originalPost: "https://tanmaysarkar.hashnode.dev/get-started-with-no-code-rest-api-building-using-syncloop"
+readTimeInMinutes: 6
+views: 258
+coverImage:
+  url: "https://cdn.hashnode.com/res/hashnode/image/upload/v1690975090026/52f9ac62-9efe-478e-81b2-676c0e4a73a2.jpeg"
+---
+
+### Introduction 🙋🏻‍♂️
+
+Hey Champs, this is Tanmay again. And today's topic is a little different, in the sense We are coders but trying to embrace low-code tools also. It is not that we are trying to transition to this kind of tool but to increase productivity as a developer.
+
+![](https://cdn.hashnode.com/res/hashnode/image/upload/v1690983677347/fd46e81c-9255-4f90-a1e6-03a23a278fac.webp align="center")
+
+Using this tool, we will remove the repeated same tasks for building a rest API of a low-complexity project. Suppose you are building a health tracking project and you need a simple backend service for performing various logic of available data, in that scenario building a backend server in the project is comparatively time-consuming and hectic.
+
+And that position, we can use tools like Syncloop to build a Rest API with ease and use it in our project. In that way, we can remove the need for a dedicated backend server and the time of a developer to code a backend.
+
+With that being said, let's see what are the possibilities with Syncloop.
+
+### Overview of Syncloop
+
+Syncloop is an innovative no-code API service that simplifies the process of creating and managing APIs. With its user-friendly interface, developers and non-developers alike can effortlessly design, deploy, and monitor APIs without writing a single line of code.
+
+Syncloop offers a wide range of features, including data integration, authentication, and endpoint customization, enabling users to seamlessly connect their applications and services. It's intuitive workflow and robust security measures make it an ideal choice for businesses and individuals seeking a quick and efficient way to build powerful APIs without the complexities of traditional coding.
+
+![](https://cdn.hashnode.com/res/hashnode/image/upload/v1690975819557/aae1e9b0-02be-4344-94af-2e6c2d167f38.png align="center")
+
+### Let's get started with Syncloop 🚀
+
+Now I'll walk you through the whole process to build an API which will give us a list of quotes and the authors' names.
+
+<div data-node-type="callout">
+<div data-node-type="callout-emoji">💡</div>
+<div data-node-type="callout-text">You will find a short video below of the whole process, because writing it is a little hectic, you will understand better in video maybe. <a target="_blank" rel="noopener noreferrer nofollow" href="https://youtu.be/fbCPwcNBsEk" style="pointer-events: none">Here</a></div>
+</div>
+
+1. **Create an account with Syncloop:**
+    
+    Visit [https://www.syncloop.com/](https://www.syncloop.com/) and create a free account there. Now log in to the dashboard with your account.
+    
+    ![](https://cdn.hashnode.com/res/hashnode/image/upload/v1690976164515/b8903325-da64-40c8-ad48-d65b712433f8.png align="center")
+    
+    As you can see, you will find useful resources to understand the tool in their documents and training videos. If you are serious about using it, you should watch and understand the tool more.
+    
+2. **Head over to Workspace:**
+    
+    Here in the workspace, we will work. Everything related to building APIs is here.
+    
+    ![](https://cdn.hashnode.com/res/hashnode/image/upload/v1690976392616/a4ed8b8a-fc28-4b89-afc9-c115903a21cb.png align="center")
+    
+    You will find \`packages\` there, inside it there are demos and pre-built services. Now maybe you are thinking about what are services.
+    
+    <div data-node-type="callout">
+    <div data-node-type="callout-emoji">💡</div>
+    <div data-node-type="callout-text">The service in the Syncloop tool behaves like functions in the programming languages. A function is first defined and then called for its proper usage. The main advantage of using services is that it aids in better reusability of program code. Find more about the service <a target="_blank" rel="noopener noreferrer nofollow" href="https://www.syncloop.com/workspace-docs/service.html?utm_source=Website&utm_medium=service&utm_id=docs&utm_content=left-menu-bar" style="pointer-events: none">here</a>.</div>
+    </div>
+    
+3. **Create the folders and files:**
+    
+    **First**, you need to create a dedicated package for our quote API by right-clicking and selecting *new.*
+    
+    ![](https://cdn.hashnode.com/res/hashnode/image/upload/v1690978712265/37cd605f-d951-486b-a8cb-4107b1a2ab68.png align="left")
+    
+    **Second**, you'll see the new package `quoteAPI` with a dependency folder inside it. Now create a folder there. I'm naming it `generateQuotes`
+    
+    ![](https://cdn.hashnode.com/res/hashnode/image/upload/v1690978885894/9e4201a2-f02f-4c9f-bc95-ff2e0f8b3149.png align="center")
+    
+    **Third**, create a last file which is a service of the API category. And in this file, we will drag and drop stuff to make the quote generation work.
+    
+    ![](https://cdn.hashnode.com/res/hashnode/image/upload/v1690979061341/a9084698-4448-4abb-b7cf-d67f7fc8368e.png align="center")
+    
+    > We can use a dedicated database to fetch quotes to our Rest API but I don't want to make this beginner-friendly tutorial more complex. So I will fetch quotes from another free available API and route it to our API, so that we can use our API to fetch quotes but deep inside our API will also fetch the quote from another API.
+    
+    As you can see there are Consumers and Developers fields, it is for better role-based permissions.
+    
+    ![](https://cdn.hashnode.com/res/hashnode/image/upload/v1690979350732/1ecdc7a5-d364-4be7-9751-e12155ef3d6a.png align="center")
+    
+    With that, we have created our first API service which has an endpoint that we will use as an API link. Now we have to customize it to our needs. Let us see what to be done now.
+    
+    ![](https://cdn.hashnode.com/res/hashnode/image/upload/v1690980052930/a0cb7c9a-a214-4beb-916f-75a9aa3c2ba1.png align="center")
+    
+4. **Build API Service File:**
+    
+    You understood the input and output parameters area. Now first we have to use a **Map** or **Transformer** to map flow data in further steps.
+    
+    <div data-node-type="callout">
+    <div data-node-type="callout-emoji">💡</div>
+    <div data-node-type="callout-text"><strong>Transformer </strong>is a Syncloop term, this is one of the most frequently used statements on the platform. A Transformer statement is created by right-clicking on the control flow section and selecting Transformer from the context menu strip. A Transformer is created in the control flow section of the Syncloop workspace.</div>
+    </div>
+    
+    So, right-click on the centre and choose **Transformer**.
+    
+    ![](https://cdn.hashnode.com/res/hashnode/image/upload/v1690980535925/eede4edc-09f5-4636-b052-7bb66acbd674.png align="center")
+    
+    With that, you will see a new layout. Each transformer has two fields also input and output. You can right-click to create new files or fields there.
+    
+    <div data-node-type="callout">
+    <div data-node-type="callout-emoji">💡</div>
+    <div data-node-type="callout-text">We plan to make a get request to an existing quote API, get the quotes, convert the quotes from JSON to object and output the response with it.</div>
+    </div>
+    
+    First, we are making a transformer with output parameters `url` with [https://type.fit/api/quotes](https://type.fit/api/quotes) and `method` with *GET.*
+    
+    ![](https://cdn.hashnode.com/res/hashnode/image/upload/v1690980823366/94873247-c009-4153-a722-bbc3f8b9991d.png align="center")
+    
+    You can just select any parameter and click on the pen icon ✎ to set default values to the parameters. So just set url value and method value.
+    
+    With that, you are sure that our transformer is outputting these two parameters.
+    
+    **Second**, right-click on the dashboard area and this time select a service and this popup will arise. So without interfering with the pop-up, search in the packages section with '*request',* select the *requestV2* and click on Done.
+    
+    ![](https://cdn.hashnode.com/res/hashnode/image/upload/v1690981069026/a4f6374f-48b8-4f48-ba95-372e936518e4.png align="center")
+    
+    Now we have a transformer and a service in our API in respective order. So the transformer will send its output data to the service now.
+    
+    Select the *requestV2* service in the dashboard, you will see a new layout in the bottom part. You have to just make the route lines just by dragging.
+    
+    ![](https://cdn.hashnode.com/res/hashnode/image/upload/v1690981361311/78594a5a-104a-41b0-8ffa-c940815bc99b.png align="center")
+    
+    So, url from the previous transformer will go to the *requestV2* service's URL param and method to method param. And also the service's respPayload to a newly created payload output parameter string.
+    
+    Now, create the same name param in the main output section and that param will hold the payload also.
+    
+    ![](https://cdn.hashnode.com/res/hashnode/image/upload/v1690981649891/870a8f87-25c8-417a-8100-f677f438cab3.png align="center")
+    
+5. **Now let's test our API with Postman:**
+    
+    Before that, extract our API's endpoint by clicking on the configuration icon.
+    
+    ![](https://cdn.hashnode.com/res/hashnode/image/upload/v1690981724721/c5e80f00-045a-4e52-a237-ba841b1d41f4.png align="center")
+    
+    And, get the bearer token from the sidebar,
+    
+    ![](https://cdn.hashnode.com/res/hashnode/image/upload/v1690981821588/f844cb8c-4098-40c9-8695-b0f95369f587.png align="center")
+    
+    Now, just put the endpoint of the token in Postman and perform a *GET* request.
+    
+    ![](https://cdn.hashnode.com/res/hashnode/image/upload/v1690982000752/5b6fba6d-f1fd-4e52-ae71-f9698556b4ec.png align="center")
+
+
+### Video Solution 📀
+
+If you found the article a little confusing, I've got your back too. Watch this video:
+
+%[https://youtu.be/fbCPwcNBsEk] 
+
+### Conclusion ⏰
+
+This tool proves especially useful for projects with straightforward backend requirements, eliminating the need for dedicated backend servers and saving valuable time for developers.
+
+As we wrap up, I hope this blog has sparked your interest in delving into the world of low-code tools. We covered the following topics:
+
+* What is **Syncloop**?
+    
+* Who should use it?
+    
+* How to use it.
+    
+* Building a very simple quote-generating API.
+
+
+I hope this blog has inspired you to get involved in open source also! Because as an active contributor, I stay updated with the community. And I'm writing this blog with the challenge from the WeMakeDevs community. If you have any questions, please feel free to comment or reach out to me on Twitter.
+
+![](https://cdn.hashnode.com/res/hashnode/image/upload/v1690983561489/ea69bd84-0910-4eb1-9969-c0fe00ade9ca.webp align="center")
+
+With that have an amazing day, *sayonara* 👋🏼
+
+Follow me on [@sarkartanmay393](www.twitter.com/sarkartanmay393) 🐦  
+Direct mail me at [sarkartanmay393@gmail.com](http://sarkartanmay393@gmail.com) 📧 

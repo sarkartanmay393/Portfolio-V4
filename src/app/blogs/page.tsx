@@ -1,4 +1,5 @@
 import BlurFade from "@/components/magicui/blur-fade";
+import { formatDate } from "@/lib/utils";
 import { getBlogPosts } from "@/services/blog";
 import Link from "next/link";
 
@@ -17,16 +18,7 @@ export default async function BlogPage() {
       <BlurFade delay={BLUR_FADE_DELAY}>
         <h1 className="font-medium text-2xl mb-8 tracking-tighter">blogs</h1>
       </BlurFade>
-      {posts
-        .sort((a, b) => {
-          if (
-            new Date(a.metadata.publishedAt) > new Date(b.metadata.publishedAt)
-          ) {
-            return -1;
-          }
-          return 1;
-        })
-        .map((post, id) => (
+      {posts.map((post, id) => (
           <BlurFade delay={BLUR_FADE_DELAY * 2 + id * 0.05} key={post.slug + id}>
             <Link
               className="flex flex-col space-y-1 mb-4"
@@ -35,7 +27,7 @@ export default async function BlogPage() {
               <div className="w-full flex flex-col">
                 <p className="tracking-tight">{post.metadata.title}</p>
                 <p className="h-6 text-xs text-muted-foreground">
-                  {post.metadata.publishedAt}
+                  {formatDate(post.metadata.publishedAt)}
                 </p>
               </div>
             </Link>

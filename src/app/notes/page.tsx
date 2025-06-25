@@ -14,13 +14,14 @@ export default function NotesPage() {
       <BlurFade delay={BLUR_FADE_DELAY}>
         <h1 className="font-medium text-2xl mb-8 tracking-tighter">notes</h1>
       </BlurFade>
-      {DATA.notes.map((note, id) => (
-        <BlurFade delay={BLUR_FADE_DELAY * 2 + id * 0.05} key={(note as any)?.slug + id}>
-          <NoteCard
-            no={id + 1}
-            title={note?.title || note.brief}
-            description={note.brief} period={""} />
-          {/* <Link
+      <div className="flex flex-col gap-2">
+        {DATA.notes.map((note, id) => (
+          <BlurFade delay={BLUR_FADE_DELAY * 2 + id * 0.05} key={(note as any)?.slug + id}>
+            <NoteCard
+              no={id + 1}
+              title={note?.title || note.brief}
+              description={note.brief} period={""} />
+            {/* <Link
             className="flex flex-col space-y-1 mb-4"
             href={'#'}
           // `/blog/${post.slug}`
@@ -31,9 +32,10 @@ export default function NotesPage() {
                 {note.publishedAt}
               </p>
             </div> */}
-          {/* </Link> */}
-        </BlurFade>
-      ))}
+            {/* </Link> */}
+          </BlurFade>
+        ))}
+      </div>
     </section>
   );
 }

@@ -1,0 +1,226 @@
+---
+id: "64a44f019f65ebc709a93479"
+title: "Build a News Article Summarizer with OpenAI's GPT-3 and Langchain"
+brief: "Introduction 🙋🏻‍♂️\nHi Fellows, today is your special day as it is for me too. I learned more about AI, LLMs and Langchain framework. You may be thinking what are these terms?\n\nLLM stands for Large Language Model and Langchain is a framework to buil..."
+publishedAt: "2023-07-04T16:55:29.059Z"
+url: "https://tanmaysarkar.hashnode.dev/build-a-news-article-summarizer-with-openais-gpt-3-and-langchain"
+originalPost: "https://tanmaysarkar.hashnode.dev/build-a-news-article-summarizer-with-openais-gpt-3-and-langchain"
+readTimeInMinutes: 8
+views: 218
+coverImage:
+  url: "https://cdn.hashnode.com/res/hashnode/image/upload/v1688480638956/61ca86c4-f854-43ce-b093-70629aa31744.jpeg"
+---
+
+### Introduction 🙋🏻‍♂️
+
+Hi Fellows, today is your special day as it is for me too. I learned more about AI, LLMs and Langchain framework. You may be thinking what are these terms?
+
+> LLM stands for Large Language Model and Langchain is a framework to build applications using LLMs(GPT-3, GPT-4).
+
+As I'm learning advanced development, building applications using AI tools is necessary in today's world. The tech community nowadays sees various awesome apps built on top of AI models and gives users a wonderful experience. So today, I'll be talking about this topic and helping you kickstart your journey in this field.
+
+As you are already aware the constant bombard of new information on us every single day. It can be challenging to keep up with all the news and articles published daily. This is where a news article summarizer can be helpful, What do you think? 🤓  
+A news article summarizer can read a long article and generate a shorter summary of the key points. This can save you time and help you to stay up-to-date on the latest news.
+
+![arcitecture](https://cdn.hashnode.com/res/hashnode/image/upload/v1688489807968/d9189f98-5d7b-4226-a64c-13c459e1b859.avif align="center")
+
+And how will it happen? Definitely using [OpenAI](https://platform.openai.com/) services. But there's a catch, it takes money to give you API services. Heyyy no worries, I've got a solution for you. You can signup at [OpenAI](https://platform.openai.com/) and avail $5 for the first three months. I have another way also, where we leverage quantized chat models to run locally on our machine and get services directly from it, but it's another topic. I will walk you through that way also, but in the next blog, so stay updated with me.
+
+<div data-node-type="callout">
+<div data-node-type="callout-emoji">💡</div>
+<div data-node-type="callout-text">If you are not the reader type, watch this video <a target="_blank" rel="noopener noreferrer nofollow" href="https://youtu.be/FPossCmTFZ0" style="pointer-events: none">https://youtu.be/FPossCmTFZ0</a>. I covered all the points of this blog in that video for you, check it out.</div>
+</div>
+
+### LLMs and Langchain
+
+What are basically LLMs? Large language models (LLMs) are a type of artificial intelligence (AI) that are trained on massive datasets of text and code. This allows them to generate text, translate languages, write different kinds of creative content, and answer your questions in an informative way.
+
+Some of the most popular LLMs include:
+
+* GPT-3: Developed by OpenAI, GPT-3 is one of the most powerful LLMs available. It has been trained on a dataset of text and code that is over 500 times larger than the dataset used to train its predecessor, GPT-2.
+    
+* LaMDA: Developed by Google AI, LaMDA is a factual language model that can answer your questions in an informative way. It has been trained on a dataset of text and code that is over 1.56 trillion words long.
+    
+
+LLMs are still under development, but they have the potential to revolutionize many industries. They can be used for a variety of tasks, including:
+
+* Text summarization: LLMs can be used to generate summaries of long pieces of text. This can be helpful for people who want to quickly get the gist of a document without having to read the whole thing.
+    
+* Translation: LLMs can be used to translate text from one language to another. This can be helpful for people who want to communicate with people who speak other languages.
+    
+* Creative writing: LLMs can be used to generate creative text, such as poems, stories, and scripts. This can be helpful for writers who are looking for inspiration or who want to automate the writing process.
+    
+* Question answering: LLMs can be used to answer your questions in an informative way. This can be helpful for students who are doing research or for people who want to learn more about a particular topic.
+    
+
+LLMs are still a relatively new technology, but they have the potential to change the way we interact with computers. As they continue to develop, they will become more powerful and capable, and they will be used for a wider range of tasks.
+
+And Langchain is just a framework (*e.g. React*) but it simplifies the development of applications using LLMs. It provides a number of functions that allow you to interact with the LLMs and generate cool stuff. That is what it's all about in a general sense. We will use Python as our coding language to build an article summarizer today with the help of OpenAI ChatModel by using the Langchain framework.
+
+![](https://cdn.hashnode.com/res/hashnode/image/upload/v1688490085207/7070b42f-58a5-4a3b-a87a-79e554eabccc.webp align="center")
+
+### Building the Summarizer 👷🏻
+
+**Requirements :**
+
+* Basic CS Fundamentals
+    
+* Knowledge of Any Programming Language
+    
+
+**Code :**
+
+1. First of all, you need to install these packages `langchain`, `openai`, `python_dotenv`, `requests`, `newspaper3k`
+    
+    ```python
+    pip install langchain openai python_dotenv requests newspaper3k
+    ```
+    
+2. Inside your project directory named `news-summarizer-python` and create a Python file
+    
+    ![](https://cdn.hashnode.com/res/hashnode/image/upload/v1688481986994/9a923d08-a1e2-4aa8-b2d0-15dd8e576214.png align="center")
+    
+3. Now start writing code. You need to follow along with my code sample below, I've written the documentation alongside.
+    
+    *#GetNewsArticle.*
+    
+    ```python
+    import requests 
+    from newspaper import Article  
+    
+    # this function takes article URL and return it in Article object. 
+    # I included a default value for the url, it never matters. 
+    def GetNewsArticle(article_url="https://labs.hakaioffsec.com/nginx-alias-traversal/"):      
+    # Fetches the news article from the given URL      
+    # header object for the request we have make to article url     
+    headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.82 Safari/537.36'}      
+    
+    # Create a session object that we can use for calling get, post function with that url.     
+    session = requests.Session()       
+    # try catch block     
+    try:         
+        # making the request with url, header, and timeout parameter.         
+        response = session.get(article_url, headers=headers, timeout=10)         
+        if response.status_code == 200:             
+            # if response comes with no issues, we make the article object             
+            # it takes the url and does everything we did using request and session on its own.              
+            article = Article(article_url)             
+            article.download()             
+            article.parse()              
+            # after downloading and parsing the data, we're returning it.             
+            return article         
+        else:             
+            # this is just for error checking             
+            print("Error fetching article url")      
+    # this is also for error checking     
+    except Exception as e:         
+    print("Error occured while fetching the news article")
+    ```
+    
+    *#summarizer.py*
+    
+    ```python
+    from GetNewsArticle import GetNewsArticle 
+    # importing ChatOpenAI (Wrapper around OpenAI Chat large language models)
+    from langchain.chat_models import ChatOpenAI
+    # schema for formatting users input for the model
+    from langchain.schema import HumanMessage
+    # if a .env file, you've to pass OPENAI_API_KEY
+    from dotenv import load_dotenv
+    load_dotenv()
+    
+    # Taking user news article url
+    article_url = input("Enter any article link: ")
+    
+    # Fetch the article we will be summarizing from our
+    article = GetNewsArticle(article_url)
+    
+    # Create a chatbot instance that will summarize the article
+    # verbose for more details to print along
+    # temperature is the randomness the model can play with
+    # 0.0 is only for real facts, 1.0 is for full creativity.
+    llm = ChatOpenAI(model_name="gpt-3.5-turbo", verbose=True, temperature=0.0)
+    
+    # Create the template for the prompt
+    # Crafting prompt is the main thing in LLM workings.
+    # using this template, we're asking the chat model to give us the summary of any long article.
+    template = """You are a smart assistant that summarizes online articles in 100 words.
+    
+    Here's the article you want to summarize.
+    
+    ==================
+    Title: {article_title}
+    
+    {article_text}
+    ==================
+    
+    Write a summary of the given article.
+    """
+    
+    # Format the prompt with the article details we've got
+    prompt = template.format(article_title=article.title,
+                             article_text=article.text)
+    
+    # Create a list of messages to send to the chatbot
+    # but we passing only one message in HumanMessage object form.
+    messages = [HumanMessage(content=prompt)]
+    
+    # Send the messages to the chatbot and print the response
+    output = llm(messages)
+    
+    # we can print our summary
+    print("\n" + output.content + "\n")
+    ```
+    
+    Note: Code is available here with a code explanation
+    
+    [https://github.com/sarkartanmay393/ArticleSummarizer-Python](https://github.com/sarkartanmay393/ArticleSummarizer-Python)
+    
+4. That's it. You can now build an AI-based summarizer. Now let us run our program,
+    
+    %[https://vimeo.com/842226438] 
+    
+
+**Note:** You need to create a `.env` file and put `OPENAI_API_KEY`
+
+![](https://cdn.hashnode.com/res/hashnode/image/upload/v1688489509625/cde1e9ef-b5a9-4db3-a5e9-30824f84ab93.png align="center")
+
+And it's not just a summarizer, it can be more than that. Like, you can get the summarized text in bulleted points. You ask how?
+
+Just tweak the prompt message a little,
+
+```python
+template = """You are an advanced AI assistant that summarizes online articles into bulleted lists.
+
+Here's the article you need to summarize.
+
+==================
+Title: {article_title}
+
+{article_text}
+==================
+
+Now, provide a summarized version of the article in a bulleted list format.
+"""
+```
+
+That is it, now the output will,
+
+![](https://cdn.hashnode.com/res/hashnode/image/upload/v1688486257578/dc71161b-3519-49b1-987d-e76197e85bb5.png align="center")
+
+### Conclusion ⏰
+
+In this blog post, we embarked on a journey to explore the world of AI, LLMs (Large Language Models), and the Langchain framework. We discovered the potential of LLMs, particularly the powerful GPT-3, in generating text and even assisting with creative writing. These advancements can revolutionize various industries and change the way we interact with computers.
+
+To simplify the development of applications using LLMs, we introduced the Langchain framework, which provides a range of functions for interacting with LLMs and generating fascinating outputs. Leveraging Python as our coding language, we set out to build an article summarizer using OpenAI's ChatModel in conjunction with Langchain.
+
+By delving into the world of AI and leveraging the Langchain framework, we have taken the first steps toward the future of technology.
+
+So, let's embrace the possibilities that AI, LLMs, and frameworks like Langchain offer, and embark on our journey of innovation and exploration in this fascinating field.
+
+I hope you learned something new today. If you have any questions, feel free to ask me in the comments below. I will be happy to help you. It would be great if you share this article with your developer friends who are new to tech.
+
+For reference, I wrote this article after learning these topics from a course called [LangChain & Vector Databases in Production](https://learn.activeloop.ai/courses/langchain). I highly suggest you join it and learn in-depth about these topics. I've used some code snippets and an image from their coursework.
+
+Follow me on [@sarkartanmay393](www.twitter.com/sarkartanmay393)  
+Direct mail me at [sarkartanmay393@gmail.com](http://sarkartanmay393@gmail.com) 

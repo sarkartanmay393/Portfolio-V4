@@ -1,0 +1,108 @@
+---
+id: "6496e102d35daf5e820032ff"
+title: "Binary Trees Explained: A Step-by-Step Tutorial"
+brief: "Introduction 🧑🏽‍💻\nWelcome to the fascinating world of binary trees! If you're new to this topic or looking to reinforce your understanding, you're in the right place. In this tutorial, I'll take you on a step-by-step journey through the fundamenta..."
+publishedAt: "2023-06-24T12:26:42.643Z"
+url: "https://tanmaysarkar.hashnode.dev/binary-trees-explained-a-step-by-step-tutorial"
+originalPost: "https://tanmaysarkar.hashnode.dev/binary-trees-explained-a-step-by-step-tutorial"
+readTimeInMinutes: 7
+views: 122
+coverImage:
+  url: "https://cdn.hashnode.com/res/hashnode/image/upload/v1687608140612/3d9d357e-d5fb-4e8a-8745-58738090e187.jpeg"
+---
+
+### Introduction 🧑🏽‍💻
+
+Welcome to the fascinating world of binary trees! If you're new to this topic or looking to reinforce your understanding, you're in the right place. In this tutorial, I'll take you on a step-by-step journey through the fundamentals of binary trees. By the end of this article, you'll have a solid understanding of binary trees and feel confident in your ability to tackle more advanced data structures.
+
+### Understanding Binary Trees 🎄
+
+Let's start by demystifying binary trees. Don't worry if you're unfamiliar with the concept – I'll break it down for you. Binary trees consist of nodes connected by edges, forming a hierarchical structure. Imagine it as a tree with branches spreading out, where each node can have up to two children. Simple, right? We'll illustrate this with easy-to-understand diagrams to make it crystal clear.
+
+![](https://cdn.hashnode.com/res/hashnode/image/upload/v1687596683318/b29259e1-8190-4f04-999b-b7dee66b95cd.png align="center")
+
+A binary tree is a hierarchical structure composed of nodes. Each node can have at most two children: a *left child* and a *right child*. The topmost node is called the *root*, and it serves as the starting point of the tree. The nodes below the root are referred to as *internal nodes*, while those at the bottom without any children are called *leaf nodes*.
+
+Now, let's break down the components of a binary tree:
+
+1. Root: The topmost node of the tree, serving as the starting point.
+    
+2. Internal Node: Nodes other than the root and leaf nodes, having both a left and right child.
+    
+3. Leaf Node: Nodes at the bottom of the tree without any children.
+    
+4. Left Child: The node directly below and to the left of another node.
+    
+5. Right Child: The node directly below and to the right of another node.
+    
+6. Parent: The node above and connected to another node.
+    
+7. Subtree: A smaller binary tree within the main binary tree, having its root.
+    
+
+The time complexity of binary tree operations is typically determined by the height in balanced trees, while it is determined by the number of nodes in unbalanced trees. A well-balanced binary tree, such as an *AVL tree* or *Red-Black tree*, ensures that the height remains logarithmic. This balance leads to efficient operations, such as insertion, deletion, and searching, all of which have a time complexity of *O(logN)* in balanced trees.
+
+![](https://prepinsta.com/wp-content/uploads/2023/03/Example-of-AVL-Tree-1.webp align="center")
+
+Now a question arises, **Why should one use binary trees over other data structures**?
+
+> *Binary trees excel in scenarios that require efficient searching, sorting, and hierarchical organization.* They *provide a balance between ordered structure and fast access, making them suitable for a wide range of applications. Compared to linear structures like Linked Lists or Arrays, Binary trees reduce the search space significantly, resulting in faster operations. Additionally, binary trees can handle dynamic data effectively, allowing for efficient insertion and removal of elements.*
+
+### Use cases of Binary Trees ⏯️
+
+Prepare to be amazed by the countless applications of binary trees! From efficient searching with binary search trees to evaluating mathematical expressions with expression trees, and even data compression with Huffman coding. All these is being possible by Binary Trees.
+
+Let's explore some common use cases where binary trees shine.
+
+1. **Searching and Sorting:** One of the primary applications of binary trees is in searching and sorting algorithms. **Binary Search Trees (BST)**, a specific type of binary tree, enable efficient searching for a particular value. They maintain an order where the left child of a node is smaller, and the right child is greater. This property allows for quick comparisons and reduces the search space, resulting in logarithmic time complexity *O(logN)* for searching operations.
+    
+2. **Hierarchical Structures:** Binary trees are ideal for representing hierarchical relationships. *File systems*, *organization charts*, and *family trees* can all be efficiently modelled using binary trees. The parent-child relationship between nodes simplifies the navigation and management of hierarchical data.
+    
+3. **Expression Evaluation:** Expression trees utilize binary tree structures to represent mathematical expressions. Operators reside in internal nodes, while operands reside in leaf nodes. Expression trees allow for efficient evaluation of complex expressions by performing operations in a specific order, guided by the tree structure.
+    
+4. **Huffman Coding:** Binary trees are central to *Huffman* coding, a compression technique widely used in data compression algorithms. Huffman trees are constructed based on the frequency of characters in a text, with frequent characters occupying shorter paths in the tree. This results in optimal compression, reducing file sizes while maintaining data integrity.
+    
+5. **Decision Trees:** Binary trees are instrumental in decision tree algorithms used for classification and regression tasks in machine learning. Decision trees divide data based on features at each node, ultimately leading to leaf nodes representing specific classes or regression values. Decision trees are interpretable and enable efficient data classification and prediction.
+    
+6. **Game Trees:** Binary trees serve as the backbone for game trees, used in game theory and artificial intelligence. Game trees represent the possible moves and outcomes in games, facilitating decision-making and strategy development for both players and intelligent agents.
+    
+
+### Implementation of Binary Tree 🌱
+
+Let's roll up our sleeves and build our very own binary tree. I'll guide you through the process, step by step. You'll be constructing binary trees like a pro in no time!
+
+%[https://replit.com/@sarkartanmay393/101BinaryTrees?v=1] 
+
+In the above Replit code, I coded everything you need to know to get started using Trees. I wrote explanations also with the code itself, you must take a look at it to understand Binary Tree implementation completely.
+
+My DSA with Java Repository: [DSA-Java BinaryTrees (Github](https://github.com/sarkartanmay393/DSA-Java/tree/master/src/com/tanmay/BinaryTree)). Give it a proper look and you may find useful codes and explanations.
+
+### Traversing Binary Trees 🎋
+
+Time to explore the exciting world of traversing binary trees. Think of it as navigating through the tree and visiting each node. There are three popular techniques: **pre-order**, **in-order**, and **post-order** traversal.
+
+![binary tree traversals](https://cdn.hashnode.com/res/hashnode/image/upload/v1687609051344/c4fc4b71-1d77-4a7c-b2a0-39a1d5a0fa32.png align="center")
+
+1. **Pre-order** traversal is primarily used for obtaining prefix expressions, creating copies of trees, and generating prefix notations. It provides a systematic way of visiting nodes in a binary tree, allowing for various applications in expression evaluation, tree manipulation, and programming.
+    
+2. **In-order** traversal is a valuable technique used for retrieving data in sorted order, evaluating expressions, creating copies of binary trees, and validating the structure of binary search trees. Its properties and applications make it an essential tool in various algorithms and data-processing tasks involving binary trees.
+    
+3. **Post-order** traversal is primarily used for evaluating expressions in expression trees, deleting nodes while maintaining proper dependencies, and generating postfix representations of expressions. Understanding the different traversal orders, including post-order, provides valuable tools for efficiently manipulating and analyzing binary trees.
+    
+
+We'll take a greater look and code each traversal technique in our upcoming post where I'll explain Binary Search Tree aka BST.
+
+### Short Note of Binary Search Tree 📝
+
+A Binary Search Tree (BST) is a binary tree with an ordering property where the left child contains smaller values and the right child contains greater values. BSTs enable efficient searching, insertion, and deletion operations with a logarithmic time complexity of O(log n). They are widely used in applications requiring fast searching and sorting, such as dictionaries, symbol tables, and databases. An in-order traversal of BSTs provides a sorted sequence of values. While the efficiency of BST operations depends on maintaining balance, they serve as the foundation for more advanced balanced tree structures. Overall, BSTs offer an ordered and efficient way to store and retrieve data.
+
+I'll be coming up with a new blog very soon, explaining Binary Search Tree and more about Binary Trees.
+
+### Conclusion 🙌🏼
+
+Congratulations! You've successfully started the journey through the world of binary trees, and you've done it with confidence and ease. Remember, mastering binary trees takes time and practice, but you're well on your way. Keep exploring advanced topics and challenging yourself with new projects. With each step, you'll enhance your problem-solving skills and become a proficient programmer.
+
+So, go ahead and embrace the power of binary trees. You're now equipped with the knowledge and understanding to tackle complex data structures. Happy coding and enjoy your newfound binary tree prowess!
+
+Follow me on 🐦 [@sarkartanmay393](www.twitter.com/sarkartanmay393)  
+Direct mail me 📧 [sarkartanmay393@gmail.com](http://mailto:sarkartanmay393@gmail.com) 

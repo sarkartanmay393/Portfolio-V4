@@ -1,0 +1,330 @@
+---
+id: "634ccfe6d68edc6df7ba7093"
+title: "Connect Database in your Go project with ease"
+brief: "Introduction\nGo is a statically typed, compiled programming language and useful for carrying out programming for scalable servers and large software systems. Golang programming language was built to fill in the gaps of C++ and Java that Google came a..."
+publishedAt: "2022-10-17T03:45:42.352Z"
+url: "https://tanmaysarkar.hashnode.dev/connect-database-in-your-go-project-with-ease"
+originalPost: "https://tanmaysarkar.hashnode.dev/connect-database-in-your-go-project-with-ease"
+readTimeInMinutes: 9
+views: 199
+coverImage:
+  url: "https://cdn.hashnode.com/res/hashnode/image/upload/v1665944777101/WqrxpGCgm.png"
+---
+
+## Introduction
+Go is a statically typed, compiled programming language and useful for carrying out programming for scalable servers and large software systems. Golang programming language was built to fill in the gaps of C++ and Java that Google came across while working with its servers and distributed systems.
+
+On the other hand, PostgreSQL, also known as Postgres, is a free and open-source relational database management system emphasizing extensibility and SQL compliance and used as the primary data store or data warehouse for many web, mobile, geospatial, and analytics applications.
+
+And today we will interact with a running database using this very language, and print out every step change in database in our terminal.
+
+![Go and PostgreSQL](https://miro.medium.com/max/1400/1*7f9kv--9ejp0hzHsSaN5nw.png)
+
+## Prerequisites
+You should have a basic knowledge of
+- **Go**
+- **PostgreSQL**
+
+## Lets Begin
+**1. Setup Postgres on Local Machine**
+
+Firstly, download [PostgreSQL](https://www.postgresql.org/download/) for you specific operating system. Mac users can just use this [postgresapp](https://postgresapp.com/), it is very light and easy to use.
+
+After downloading, install the software and open up to start your server.
+
+![postgresapp.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1665854905954/HJzzvAsrc.png align="center")
+
+> PostgreSQL server runs on port 5432 by default.
+
+Now, download and install a visual database viewer and editor like [Postico](https://eggerapps.at/postico/) or even [DBeaver](https://dbeaver.io/download/).
+
+![pestico.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1665909425111/ovtc-6_Ro.png align="left")
+
+> Pestico is very easy to use but paid, still I like to use it in free version.
+
+Our server is now running in background, now we can start building a Go program to interact with the running database. In my case the name of the database is `test-database`. You can create new database in Pestico itself and I hope you are familiar with databases.
+
+
+**2. Setup Go Project**
+
+Open a new folder in your favorite code editor and create a `main.go` file containing the code
+```go
+package main
+
+func main() {
+	// Connect to database
+
+	// Test Connection
+
+	// View Rows
+
+	// Insert Row
+
+	// View Rows
+
+	// Update Row
+
+	// View Rows
+
+	// Delete Row
+
+	// View Rows
+
+	// View Row by ID
+
+}
+```
+
+And hit the command on terminal to initiate a module with module name and here I put my [GitHub repository](https://github.com/sarkartanmay393/Go-PostgreSQL-Test) link as a convention.
+```shell
+go mod init github.com/sarkartanmay393/Go-PostgreSQL-Test
+```
+
+As you can see our main function with a lot of areas with specified tasks, we are going to connect database with our program then test it, view its data, perform insert, delete, update and view its data again to see the changes on every step in the specific table of our database.
+
+**3. Writing Code**
+
+- Now, lets connect our database with Go program
+```go
+// Connect to database
+dsn := "host=localhost port=5432 dbname=test-database user=postgres password=" // replace fields with your own database credentials
+conn, err := sql.Open("pgx", dsn) // Opening connection to database with the driver 'pgx'
+if err != nil { // Error handling
+    log.Fatalf("Unable to open database: %v\n", err)
+}
+defer conn.Close() // This db connection will stop when our program finishes not before that.
+```
+> For using pgx driver, we have to import `_ "github.com/jacke/pgx/v5/stdlib"` in our function.
+
+- Time to test our connection with program
+```go
+// Test Connection
+err = conn.Ping() // Ping function will test the connection and return error if any problem occurs.
+if err != nil { // Error handing
+    log.Fatalln("Unable to ping database: ", err)
+}
+log.Println("Pinged Database!")        
+```
+- For viewing all rows of our table from database, lets create a function so that we can use it repeatedly.
+
+```go
+// viewRows prints all available information from database.
+func viewRows(conn *sql.DB) error {
+	
+	// Remember to use `` instead of '' or "" for multiline strings
+	// Query to select all rows from table, SQL language is used here.
+	query := `SELECT id, first_name, last_name, email FROM users ORDER BY id;` 
+	
+	rows, err := conn.Query(query) // Query function will execute the query and return rows and error if any.
+    if err != nil { // Error handling
+        log.Println("Unable to query result.")
+        return err
+    }
+	
+	// We will use defer to close the rows after the function finishes.
+    defer rows.Close()
+    
+    var id int8
+    var first_name, last_name, email string
+	
+    for rows.Next() { // Looping through all rows
+		// scanning the rows and storing in variables
+        err := rows.Scan(&id, &first_name, &last_name, &email)
+        if err != nil {
+            log.Println("Something went wrong while scanning rows.")
+            return err
+        }
+        fmt.Printf("ID: %v, FIRST: %v, LAST: %v, EMAIL: %v\n", id, first_name, last_name, email)
+    }
+    fmt.Println("----------------------------------")
+    if err = rows.Err(); err != nil { // Rechecking for error in rows.
+        log.Println("Something went wrong while iterating over rows.")
+        return err
+    }
+    
+    return nil
+}
+```
+- Now we can see our data with a just `viewRows(conn)` function call. But I am writing some extra codes with it to get better look in our terminal.
+```go
+// View Rows
+fmt.Printf("Initialising with these two entries.\n")
+err = viewRows(conn) // Only call the function to view rows.
+if err != nil {
+    log.Println("Unable to view database: ", err)
+}
+```
+
+- Now we can see data from database in terminal, hit command `go run main.go` and as because I had put a row with my own name, it is shown in terminal. 
+
+![output1.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1665857901943/2x3aPczaw.png align="left")
+
+1. How can we insert a row in our database ?
+
+```sql
+INSERT INTO users (first_name, last_name, email) VALUES ($1, $2, $3)
+```
+2. How can we update a row in our database ?
+
+```sql
+UPDATE users SET email = $1 WHERE id = $2
+```
+3. How can we delect a row in our database ?
+
+```sql
+DELETE FROM users WHERE id = $1
+```
+These are SQL codes to perform tasks in database, and `$1` or `$2` are placeholders, we have to populate these placeholders with appropriate values. Just like these,
+
+- Lets see how can we insert a row in database in Go
+```go
+// Insert Row
+query := `INSERT INTO users (id, first_name, last_name, email) values ($1, $2, $3, $4)`
+// query is the SQL statement to perform in database using GO
+_, err = conn.Exec(query, 3, "Amit", "Nandi", "amit@ac.org") // Executing a query with 4 placeholders.
+if err != nil { // Error handling
+    log.Println("Unable to insert into database: ", err)
+}
+```
+
+As you can see, we can execute any query just calling `conn` and all other tasks are shown in below `main.go`, try to understand reading the comments.
+```go
+package main
+
+import (
+	"database/sql"
+	"fmt"
+	"log"
+
+	_ "github.com/jackc/pgx/v5/stdlib" // to just use the driver name `pgx`, we have to import it.
+)
+
+func main() {
+	// Connect to database
+	dsn := "host=localhost port=5432 dbname=test-database user=postgres password=" // replace fields with your own database credentials
+	conn, err := sql.Open("pgx", dsn)                                              // Opening connection to database with the driver 'pgx'
+	if err != nil {                                                                // Error handling
+		log.Fatalf("Unable to open database: %v\n", err)
+	}
+	defer conn.Close() // This db connection will stop when our program finishes not before that.
+
+	// Test Connection
+	err = conn.Ping() // Ping verifies a connection to the database is still alive, establishing a connection if necessary.
+	if err != nil {   // Error handling
+		log.Fatalln("Unable to ping database: ", err)
+	}
+	log.Println("Pinged Database!")
+
+	// View Rows
+	fmt.Printf("Initialising with these two entries.\n")
+	err = viewRows(conn) // Only function call to view all data in terminal.
+	if err != nil {      // Error handling
+		log.Println("Unable to view database: ", err)
+	}
+
+	// Insert Row
+	query := `INSERT INTO users (id, first_name, last_name, email) values ($1, $2, $3, $4)`
+	// query is the SQL statement to perform in database using GO
+	_, err = conn.Exec(query, 3, "Amit", "Nandi", "amit@ac.org") // Executing a query with 4 placeholders.
+	if err != nil {                                              // Error handling
+		log.Println("Unable to insert into database: ", err)
+	}
+
+	// View Rows
+	err = viewRows(conn) // View all data again.
+	if err != nil {      // Error handling
+		log.Println("Unable to view database: ", err)
+	}
+
+	// Update Row
+	query = `UPDATE users SET email = $1 WHERE id = $2`
+	// query to update something in our database, where id matches with our given id.
+	_, err = conn.Exec(query, "deba@slg.org", 2) // Executing query with 2 placeholders, email and id.
+	if err != nil {                              // Error handling
+		log.Println("Unable to update database: ", err)
+	}
+
+	// View Rows
+	err = viewRows(conn) // Viewing all rows again.
+	if err != nil {      // Error handling
+		log.Println("Unable to view database: ", err)
+	}
+
+	// Delete Row
+	query = `DELETE FROM users WHERE id = $1`
+	// query to delete a specific row fromd database where id matches.
+	_, err = conn.Exec(query, 1) // Executing the specific query to delete thw row whose id is 1.
+	if err != nil {              // Error handling
+		log.Println("Unable to execute delete query.")
+	}
+
+	// View Rows
+	viewRows(conn)
+
+	// View Row by ID
+	var id int
+	var first_name, last_name, email string
+	// declaring some variables to hold data and will come from database
+	query = `SELECT id, first_name, last_name, email FROM users WHERE id = $1`
+	// SELECT will show us data like id, first, last and email FROM a table called users WHERE id is placeholder.
+	err = conn.QueryRow(query, 3).Scan(&id, &first_name, &last_name, &email)
+	// QueryRow executes a query that is expected to return at most one row.
+	// We are scaning our returned row to extract the values that came.
+	fmt.Println("QUERYROW \t", first_name, last_name, email) // Printing everything in terminal.
+
+	// Close Connection
+}
+
+func viewRows(conn *sql.DB) error {
+
+	// Remember to use `` instead of '' or "" for multiline strings
+	// Query to select all rows from table, SQL language is used here.
+	query := `SELECT id, first_name, last_name, email FROM users ORDER BY id;`
+
+	rows, err := conn.Query(query) // Query function will execute the query and return rows and error if any.
+	if err != nil {                // Error handling
+		log.Println("Unable to query result.")
+		return err
+	}
+
+	// We will use defer to close the rows after the function finishes.
+	defer rows.Close()
+
+	var id int8
+	var first_name, last_name, email string
+
+	// Rows is like a list of row and looping through it to extract values from all indivisual row.
+	for rows.Next() { // Looping through all rows
+		// scanning the rows and storing in variables
+		err := rows.Scan(&id, &first_name, &last_name, &email)
+		if err != nil {
+			log.Println("Something went wrong while scanning rows.")
+			return err
+		}
+		fmt.Printf("ID: %v, FIRST: %v, LAST: %v, EMAIL: %v\n", id, first_name, last_name, email)
+	}
+	fmt.Println("----------------------------------")
+	if err = rows.Err(); err != nil { // Rechecking for error in rows.
+		log.Println("Something went wrong while iterating over rows.")
+		return err
+	}
+
+	return nil
+}
+```
+
+> I have created a repository on GitHub, [Go-Postgres-Test](https://github.com/sarkartanmay393/Go-PostgreSQL-Test) where you can visit can check out whole project.
+
+ And now the final terminal output : 
+
+![final-terminal-output.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1665909130347/jtdP2t8A1.png align="left")
+
+
+---
+## Final Note
+
+Learning to interact with databases through Go is useful in these days when Go is getting popular every day and more people are using it for there server side works. I am making a [Room Reservation](https://github.com/sarkartanmay393/RoomReservation-WebApp) project where it needs to talk with database to parse and manipulate data, and from there I have learnt using database query statements in Go.
+
+Hope that you have learnt something new today. If you like my presentation through this article, it would be great if you share this article with your developer friends who are new to Go and databases. 
+
+Follow me on: [@sarkartanmay393](www.twitter.com/sarkartanmay393) 

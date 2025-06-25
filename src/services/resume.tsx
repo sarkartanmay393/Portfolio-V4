@@ -4,33 +4,39 @@ import { BookOpenText, Computer, HomeIcon, NotebookIcon } from "lucide-react";
 export const DATA = {
   name: "Tanmay Sarkar",
   initials: "TSR",
-  url: "https://tanmaysarkar.vercel.app",
+  url: "https://tanmay.cloud",
   location: "Dhupguri, West Bengal, India",
   locationLink: "https://www.google.com/maps/place/dhupguri",
   description:
-    "Software Engineer with a passion for Web3, AI and, full-stack development, and building impactful applications that solve real-world problems.",
+    "Professionally software engineer with a passion for product development and explorer across different domains.", 
   summary:
-    "I am a dedicated Software Engineer with over a year of experience developing user-focused web applications. Currently, I’m working as a Software Engineer at Nirmata, where I’ve contributed to CNCF ecosystem projects and user interface redesigns. My experience includes internships at Cheerio AI, CoRider, and Unreal Finance, where I improved user engagement, optimized performance, and implemented key functionalities. I am pursuing a B.Tech in Computer Science at Cooch Behar Government Engineering College, with a focus on JavaScript, Go, React.js, Docker, and AWS.",
+    "Have experience of developing web applications, servers, ci/cd pipelines and AI workflows. I post nonsense on X as well, and share other content across my socials. Other times, I ride motorcycles, make videos, play digital games and help my father in his business.",
   avatarUrl: "/me.jpeg",
   skills: [
     "JavaScript",
+    // "TypeScript",
     "Python",
     "Go",
-    "Solidy",
+    // "Solidity",
     "React.js",
     "Node.js",
+    "Fast API",
     "Next.js",
     "MongoDB",
     "PostgreSQL",
     "Redis",
     "Docker",
-    "AWS",
+    "Cloud Providers (AWS, GCP, Azure)",
     "Git",
-    "GitHub Actions",
+    // "GitHub Actions",
     "Kubernetes",
+    // "LangChain",
+    // "React Native",
+    "Ether.js",
+    // "Jest"
   ],
   navbar: [
-    { href: "/", icon: HomeIcon, label: "about" },
+    { href: "/", icon: HomeIcon, label: "home" },
     { href: "/blogs", icon: NotebookIcon, label: "blogs" },
     { href: "/projects", icon: Computer, label: "projects" },
     { href: "/notes", icon: BookOpenText, label: "notes" },
@@ -51,12 +57,12 @@ export const DATA = {
         icon: Icons.linkedin,
         navbar: true,
       },
-      Blog: {
-        name: "Blog",
-        url: "https://tanmaysarkar.hashnode.dev",
-        icon: Icons.globe,
-        navbar: true,
-      },
+      // Blog: {
+      //   name: "Blog",
+      //   url: "https://tanmaysarkar.hashnode.dev",
+      //   icon: Icons.globe,
+      //   navbar: true,
+      // },
       email: {
         name: "Send Email",
         url: "mailto:sarkartanmay393@gmail.com",
@@ -73,40 +79,40 @@ export const DATA = {
   },
   work: [
     {
+      company: "Simbian AI",
+      href: "https://simbian.ai",
+      badges: [],
+      location: "Remote",
+      title: "Software Engineer",
+      logoUrl: "/simbian.png",
+      start: "Jan 2025",
+      end: "Present",
+      description:
+        "Revamped the Simbian SaaS platform with a modern UI and dark mode support. Built and deployed a self-hosted CMS for company content. Added RBAC and internationalization (i18n) features to the SaaS product. Technologies: JavaScript, React.js, Django, LangChain, AWS."
+    },
+    {
       company: "Nirmata",
       href: "https://nirmata.com",
       badges: [],
       location: "Bangalore, Karnataka, India",
-      title: "Software Engineer",
+      title: "Software Engineer (Frontend)",
       logoUrl: "/nirmata.webp",
       start: "Jul 2024",
-      end: "Present",
+      end: "Dec 2024",
       description:
-        "Developed advanced tools for the Cloud Native ecosystem, resulting in a 15% improvement in performance and an increase in user satisfaction. Developed Policy Studio that generates AI policies and provides a UI. Redesigned and implemented a new user interface using the MVC model, improving user engagement and simplifying navigation.",
+        "Spearheaded the development of Managed Kyverno, enhancing SaaS performance by 15% and improving user satisfaction. Built and deployed the Policy Studio, enabling AI-driven policy generation with a user-friendly interface, reducing manual effort by 25%. Technologies: React.js, Docker, AWS, Go."
     },
     {
-      company: "Cheerio",
+      company: "Cheerio AI",
       href: "https://cheerio.in",
       badges: [],
       location: "Bangalore, Karnataka, India",
-      title: "Software Engineer",
+      title: "Software Engineer Intern",
       logoUrl: "/cheerioai.png",
-      start: "Mar",
+      start: "Mar 2024",
       end: "Jul 2024",
       description:
-        "Revamped the user interface, leading to an increase in user engagement and on-boarding new users. Developed and integrated automated email and notification services using AWS SNS and SES, improving communication efficiency for users.",
-    },
-    {
-      company: "CoRider",
-      href: "https://corider.in",
-      badges: [],
-      location: "Remote",
-      title: "Software Engineer Intern",
-      logoUrl: "/corider.webp",
-      start: "Dec",
-      end: "Mar 2024",
-      description:
-        "Designed and built a Progressive Web App (PWA) using React.js, resulting in a 30% improvement in loading speed and increased user satisfaction. Developed real-time routing and socket functionality for the Flask backend, enhancing the application’s communication capabilities. Maintained the two codebases on EC2 Instances with Docker.",
+        "Overhauled the user interface, resulting in a 30% increase in speed and a smoother onboarding process. Implemented automated email and notification services using AWS SNS and SES, improving communication efficiency by 40%. Technologies: React.js, React Native, Node.js, MongoDB, Redis, AWS."
     },
     {
       company: "Unreal Finance",
@@ -115,11 +121,11 @@ export const DATA = {
       location: "Remote",
       title: "Frontend Developer",
       logoUrl: "/unrealfinance.webp",
-      start: "Feb",
+      start: "Feb 2023",
       end: "Nov 2023",
       description:
-        "Attracted new users by developing a high-conversion landing page using Next.js. Created CI/CD pipeline with GitHub Actions, EC2 Instance. Developed and integrated secure payment features using Stripe API and web-hooks, streamlining transactions, and improving user trust.",
-    },
+        "Delivered a high-conversion landing page using Next.js, boosting user acquisition by 25%. Established a CI/CD pipeline with GitHub Actions and AWS EC2. Integrated secure payment features with Stripe API, ensuring robust transaction handling. Technologies: Next.js, Ether.js, MongoDB, Docker, AWS."
+    }
   ],
   education: [
     {
@@ -142,7 +148,7 @@ export const DATA = {
   ],
   projects: [
     {
-      title: "ArticleAI",
+      title: "Article AI",
       href: "https://articleai.vercel.app",
       links: [
         {
@@ -159,8 +165,24 @@ export const DATA = {
       dates: "Nov 2024 – Present",
       active: true,
       description:
-        "",
+        "Unlock the power of AI for effortless article creation. We’re almost there. Get ready to explore endless possibilities!",
       technologies: ["TypeScript", "Next.js", "Supabase", "OpenAI"],
+    },
+    {
+      title: "Eleza AI",
+      href: "https://gen-ai-platform.eleza.ai/",
+      links: [
+        {
+          href: "https://gen-ai-platform.eleza.ai/",
+          icon: "",
+          type: "Website",
+        }
+      ],
+      dates: "Nov 2024 – Present",
+      active: true,
+      description:
+        "Eleza AI is an AI-driven platform that generates customizable legal and enforcement documents with ease. It offers metadata enrichment and multiple export formats, catering to legal professionals who need precision and flexibility. Built with Next.js, Supabase, OpenAI, and AWS, it delivers a scalable and high-performance solution.",
+      technologies: ["TypeScript", "Next.js", "Supabase", "OpenAI", "AWS"],
     },
     {
       title: "GeoPulse",
@@ -168,148 +190,164 @@ export const DATA = {
       links: [
         {
           href: "https://geo-pulse.vercel.app",
-          icon: '',
+          icon: "",
           type: "Website",
         },
         {
           href: "https://github.com/sarkartanmay393/GeoPulse",
-          icon: '',
+          icon: "",
           type: "Github",
         }
       ],
       dates: "August 2024 – Present",
       active: true,
       description:
-        "Analyze and compare geopolitical relations between countries using the latest data based on few factors. You will see a calculated score also. Increased user engagement by 20%.",
+        "GeoPulse offers real-time analysis and visualization of geopolitical relationships across countries. Featuring interactive dashboards and advanced data processing for relation scores, it’s a powerful tool for understanding global dynamics. Developed using TypeScript, Next.js, Supabase, and OpenAI for cutting-edge insights.",
       technologies: ["TypeScript", "Next.js", "Supabase", "OpenAI"],
     },
     {
-      title: "TaskManager-Kanban",
-      href: "https://tsmk-dnd.vercel.app/",
+      title: "KanbanFlow",
+      href: "https://taskboard.vercel.app/",
       links: [
         {
-          href: "https://tsmk-dnd.vercel.app/",
-          icon: '',
+          href: "https://taskboard.vercel.app/",
+          icon: "",
           type: "Website",
         },
         {
-          href: "https://github.com/sarkartanmay393/tsmk-dnd",
-          icon: '',
+          href: "https://github.com/sarkartanmay393/TaskBoard",
+          icon: "",
           type: "Github",
         }
       ],
       dates: "March 2024 – Present",
       active: true,
       description:
-        "Simple task manager with core functionalities. Streamlines task management and organization.",
+        "KanbanFlow is a Kanban-style task manager emphasizing local-first functionality, keeping your data secure on your device. Its intuitive interface simplifies task and project organization, blending performance with usability. Built with TypeScript, React.js, Express.js, PostgreSQL, and Prisma for a robust experience.",
       technologies: ["TypeScript", "React.js", "Express.js", "PostgreSQL", "Prisma"],
     },
     {
-      title: "URL-Shortener-Go",
+      title: "LinkShrink",
       href: "https://github.com/sarkartanmay393/URL-Shortener-Go",
       links: [
         {
           href: "https://github.com/sarkartanmay393/URL-Shortener-Go",
-          icon: '',
+          icon: "",
           type: "Github",
         }
       ],
       dates: "April 2024 – Present",
       active: true,
       description:
-        "Go-based URL shortener service with Redis and Docker integration for efficient and scalable performance.",
+        "LinkShrink is a high-performance URL shortening service powered by Go, utilizing Redis for efficient data storage and retrieval, and Docker for seamless deployment. With features like time-based expiration and rate limiting, it’s a secure and scalable solution for developers.",
       technologies: ["Go", "Redis", "Docker"],
     },
     {
-      title: "TypeTrails",
+      title: "Type Trails",
       href: "https://typetrails.vercel.app/",
       links: [
         {
           href: "https://typetrails.vercel.app/",
-          icon: '',
+          icon: "",
           type: "Website",
         },
         {
           href: "https://github.com/sarkartanmay393/TypeTrails",
-          icon: '',
+          icon: "",
           type: "Github",
         }
       ],
       dates: "June 2024 – Present",
       active: true,
       description:
-        "A typing practice tool aimed at increasing typing speed. Current goal: 90 words per minute.",
+        "Type Trails is a typing practice tool crafted to boost speed and accuracy, aiming for users to hit 90 words per minute. It includes diverse exercises and progress tracking for an engaging learning experience. Fully developed in TypeScript for a fluid and reliable interface.",
       technologies: ["TypeScript"],
     },
     {
-      title: "FrameFlex",
+      title: "Frame Flex",
       href: "https://frameflex.vercel.app",
       links: [
         {
           href: "https://frameflex.vercel.app",
-          icon: '',
+          icon: "",
           type: "Website",
         },
         {
           href: "https://github.com/sarkartanmay393/FrameFlex",
-          icon: '',
+          icon: "",
           type: "Github",
         }
       ],
       dates: "August 2024 – Present",
       active: true,
       description:
-        "A tool to capture screenshots and create GIFs from specific areas on a webpage using html2canvas.",
+        "Frame Flex enables users to capture screenshots and create GIFs from targeted webpage sections. Powered by html2canvas, it’s perfect for crafting visual content for presentations or documentation. Built with TypeScript for dependable performance and ease of use.",
       technologies: ["TypeScript"],
     },
     {
-      title: "CryptoConvert",
+      title: "Crypto Converter",
       href: "https://cryptoconvert.vercel.app",
       links: [
         {
           href: "https://cryptoconvert.vercel.app",
-          icon: '',
+          icon: "",
           type: "Website",
         },
         {
           href: "https://github.com/sarkartanmay393/CryptoConvert",
-          icon: '',
+          icon: "",
           type: "Github",
         }
       ],
       dates: "September 2024 – Present",
       active: true,
       description:
-        "A web application allowing users to convert cryptocurrency to fiat currencies. Enhances user experience for crypto conversions.",
+        "Crypto Converter is a sleek web app for converting cryptocurrency values into fiat currencies using real-time exchange rates. Designed for crypto enthusiasts and investors, it offers accuracy and simplicity. Built with TypeScript, React.js, Express.js, and ShadcnUI for a polished user experience.",
       technologies: ["TypeScript", "React.js", "Express.js", "ShadcnUI"],
     },
     {
-      title: "RoomPay-Web",
+      title: "RoomPay",
       href: "https://roompay.vercel.app",
       links: [
         {
           href: "https://roompay.vercel.app",
-          icon: '',
+          icon: "",
           type: "Website",
         },
         {
           href: "https://github.com/sarkartanmay393/RoomPay-Web",
-          icon: '',
+          icon: "",
           type: "Github",
         }
       ],
       dates: "December 2023 – Present",
       active: true,
       description:
-        "A TypeScript-based web application to track expenses and due money between friends. It simplifies expense management for groups.",
+        "RoomPay is a TypeScript-powered app that streamlines expense tracking and settlement among friends. Users can log expenses, calculate dues, and manage group finances effortlessly. Developed with React.js, Supabase, and Material UI for a clean, intuitive interface.",
       technologies: ["TypeScript", "React.js", "Supabase", "Material UI"],
     }
   ],
   hackathons: [],
   notes: [
     { 
-      type: 'quote', 
-      brief: "You are what think you are. You are what you do. You are what you want to do. And you are the best thing since sliced bread.",
+      type: "quote", 
+      brief: "You are the product of your environment.",
+      publishedAt: "2025-06-25",
+      title: "",
+      url: "",
+      cover: "",
+    },
+    { 
+      type: "quote", 
+      brief: "Fear is just faith in negative.",
+      publishedAt: "2025-06-25",
+      title: "",
+      url: "",
+      cover: "",
+    },
+    { 
+      type: "quote", 
+      brief: "You are what you think you are. You are what you do. You are what you want to do. And you are the best thing since sliced bread.",
       publishedAt: "2023-08-18",
       title: "",
       url: "",

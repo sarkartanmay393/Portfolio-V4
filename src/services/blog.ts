@@ -41,6 +41,7 @@ export async function getPost(slug: string) {
   const filePath = path.join("content", `${slug}.mdx`);
   let source = fs.readFileSync(filePath, "utf-8");
   const { content: rawContent, data: metadata } = matter(source);
+  // console.log('metadata', rawContent);
   const content = await markdownToHTML(rawContent);
   return {
     source: content,
@@ -64,7 +65,7 @@ async function getAllPosts(dir: string) {
   );
 }
 
-async function getHashnodeBlogs() {
+async function _getHashnodeBlogs() {
   const queryBlogs = async (endCursor: string) => {
     const hashnodeApi = "https://gql.hashnode.com";
   
@@ -168,11 +169,17 @@ async function getHashnodeBlogs() {
     endCursor: posts.pageInfo.endCursor,
   };
 
-  console.log('form', format);
+  // console.log('form', format);
   return format.blogs;
 }
 
 export async function getBlogPosts() {
-  // return [... await getHashnodeBlogs(), ... await getAllPosts(path.join(process.cwd(), "content"))];
-  return [... await getHashnodeBlogs()];
+  return [... await getAllPosts(path.join(process.cwd(), "content"))].sort((a, b) => {
+    if (
+      new Date(a.metadata.publishedAt) > new Date(b.metadata.publishedAt)
+    ) {
+      return -1;
+    }
+    return 1;
+  }).filter((post) => post.source !== '' && post.metadata.publishedAt);
 }

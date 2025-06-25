@@ -4,6 +4,7 @@ import { formatDate } from "@/lib/utils";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
+import Image from "next/image";
 
 export async function generateMetadata({
   params,
@@ -93,10 +94,45 @@ export default async function Blog({
           </p>
         </Suspense>
       </div>
+      
+      {post.metadata.coverImage?.url && (
+        <div className="mb-8 max-w-[650px]">
+          <Image
+            src={post.metadata.coverImage.url}
+            alt={post.metadata.title}
+            width={650}
+            height={350}
+            className="rounded-lg object-cover w-full"
+            priority
+          />
+        </div>
+      )}
+      
+      
       <article
         className="prose dark:prose-invert"
         dangerouslySetInnerHTML={{ __html: post.source }}
       ></article>
+      
+      {post.metadata.originalPost && (
+        <div className="mt-12 text-sm text-center text-gray-500 dark:text-gray-400">
+          <p>
+            Originally published at{" "}
+            <a
+              href={post.metadata.originalPost}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:underline"
+            >
+              {new URL(post.metadata.originalPost).hostname}
+            </a>
+          </p>
+        </div>
+      )}
+
+      <div className="mt-12 flex justify-center items-center prose dark:prose-invert opacity-60">
+        —x—
+      </div>
     </section>
   );
 }
