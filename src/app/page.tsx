@@ -12,6 +12,7 @@ import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip
 import { buttonVariants } from "@/components/ui/button";
 import { WordRotate } from "@/components/magicui/word-rotate";
 import { LinkPreview } from "@/components/ui/link-preview";
+import GitHubCalendar from "react-github-calendar";
 
 const GREETINGS = ["Hello", "नमस्ते", "你好", "Hola", "Bonjour", "Ciao", "Hallo"];
 
@@ -29,7 +30,7 @@ export default function Page() {
                 className="transition-all duration-300 text-3xl font-bold tracking-tighter sm:text-5xl xl:text-5xl/none"
                 yOffset={4}
               >
-                  <WordRotate words={greetings} />, I&apos;m {DATA.name.split(" ")[0]} 👋
+                <WordRotate words={greetings} />, I&apos;m {DATA.name.split(" ")[0]} 👋
               </BlurFade>
               <BlurFadeText
                 className="max-w-[600px] md:text-xl text-black/80 dark:text-white/80"
@@ -46,7 +47,7 @@ export default function Page() {
           </div>
         </div>
       </section>
-      
+
       <section id="about">
         <BlurFade delay={BLUR_FADE_DELAY * 3}>
           <h2 className="text-xl font-semibold">About</h2>
@@ -125,7 +126,7 @@ export default function Page() {
       </section>
 
       <section id="github-stats">
-        <div className="space-y-6 w-full">
+        <div className="space-y-4 w-full">
           <BlurFade delay={BLUR_FADE_DELAY * 13}>
             <h2 className="text-xl font-semibold">Stats
               <span className="text-sm text-muted-foreground font-light pl-2 pb-1.5">(most of contributes are now in company github)</span>
@@ -133,15 +134,7 @@ export default function Page() {
           </BlurFade>
           <div className="grid grid-cols-1">
             <BlurFade delay={BLUR_FADE_DELAY * 14}>
-              <div className="flex justify-center w-full">
-                <iframe
-                  src="https://ghchart.rshah.org/3b82f6/sarkartanmay393"
-                  width="100%"
-                  // height="200"
-                  className="rounded-lg"
-                  frameBorder="0"
-                />
-              </div>
+              <GitHubCalendar username="sarkartanmay393" hideColorLegend />
             </BlurFade>
           </div>
         </div>
