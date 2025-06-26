@@ -1,6 +1,5 @@
 import { getPost } from "@/services/blog";
 import { DATA } from "@/services/resume";
-import { formatDate } from "@/lib/utils";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";

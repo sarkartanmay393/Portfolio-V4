@@ -13,8 +13,9 @@ import { buttonVariants } from "@/components/ui/button";
 import { WordRotate } from "@/components/magicui/word-rotate";
 import { LinkPreview } from "@/components/ui/link-preview";
 import GitHubCalendar from "react-github-calendar";
+import { SmoothCursor } from "@/components/ui/smooth-cursor";
 
-const GREETINGS = ["Hello", "नमस्ते", "你好", "Hola", "Ciao", "Hallo"];
+const GREETINGS = ["Hello", "नमस्ते", "Hallo", "你好", "Hola", "Ciao"];
 
 export default function Page() {
   const greetings = GREETINGS;
@@ -30,7 +31,11 @@ export default function Page() {
                 className="transition-all duration-300 text-3xl font-bold tracking-tighter sm:text-5xl xl:text-5xl/none"
                 yOffset={4}
               >
-                <WordRotate words={greetings} />, I&apos;m {DATA.name.split(" ")[0]} 👋
+                <div className="inline-flex items-center">
+                  <WordRotate words={greetings} className="w-[100px]" />
+                  {/* <span className="ml-2.5"> </span> */}
+                  <span className="ml-6"> I&apos;m {DATA.name.split(" ")[0]} 👋</span>
+                </div>
               </BlurFade>
               <BlurFadeText
                 className="max-w-[600px] md:text-xl text-black/80 dark:text-white/80"
@@ -133,7 +138,7 @@ export default function Page() {
             </h2>
           </BlurFade>
           <div className="grid grid-cols-1">
-            <BlurFade delay={BLUR_FADE_DELAY * 14}>
+            <BlurFade delay={BLUR_FADE_DELAY * 18}>
               <GitHubCalendar username="sarkartanmay393" hideColorLegend />
             </BlurFade>
           </div>

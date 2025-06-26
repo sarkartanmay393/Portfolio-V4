@@ -2,7 +2,7 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ['github.com', 'cdn.hashnode.com', 'github-readme-stats.vercel.app', 'github-readme-streak-stats.herokuapp.com'],
+    domains: ['github.com', 'cdn.hashnode.com'],
     remotePatterns: [
       {
         protocol: "https",

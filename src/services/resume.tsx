@@ -38,7 +38,7 @@ export const DATA = {
   navbar: [
     { href: "/", icon: HomeIcon, label: "home" },
     { href: "/blogs", icon: NotebookIcon, label: "blogs" },
-    { href: "/projects", icon: Computer, label: "projects" },
+    { href: "/works", icon: Computer, label: "works" },
     { href: "/notes", icon: BookOpenText, label: "notes" },
   ],
   contact: {
@@ -146,7 +146,7 @@ export const DATA = {
       end: "2020",
     },
   ],
-  projects: [
+  works: [
     {
       title: "Article AI",
       href: "https://articleai.vercel.app",
@@ -169,22 +169,6 @@ export const DATA = {
       technologies: ["TypeScript", "Next.js", "Supabase", "OpenAI"],
     },
     {
-      title: "Eleza AI",
-      href: "https://gen-ai-platform.eleza.ai/",
-      links: [
-        {
-          href: "https://gen-ai-platform.eleza.ai/",
-          icon: "",
-          type: "Website",
-        }
-      ],
-      dates: "Nov 2024 – Present",
-      active: true,
-      description:
-        "Eleza AI is an AI-driven platform that generates customizable legal and enforcement documents with ease. It offers metadata enrichment and multiple export formats, catering to legal professionals who need precision and flexibility. Built with Next.js, Supabase, OpenAI, and AWS, it delivers a scalable and high-performance solution.",
-      technologies: ["TypeScript", "Next.js", "Supabase", "OpenAI", "AWS"],
-    },
-    {
       title: "GeoPulse",
       href: "https://geo-pulse.vercel.app",
       links: [
@@ -199,12 +183,29 @@ export const DATA = {
           type: "Github",
         }
       ],
-      dates: "August 2024 – Present",
+      dates: "Nov 2024 – Present",
       active: true,
       description:
-        "GeoPulse offers real-time analysis and visualization of geopolitical relationships across countries. Featuring interactive dashboards and advanced data processing for relation scores, it’s a powerful tool for understanding global dynamics. Developed using TypeScript, Next.js, Supabase, and OpenAI for cutting-edge insights.",
+        "GeoPulse offers real-time analysis and visualization of geopolitical relationships across countries. Featuring interactive dashboards and advanced data processing for relation scores, it’s a powerful tool for understanding global dynamics.",
       technologies: ["TypeScript", "Next.js", "Supabase", "OpenAI"],
     },
+    {
+      title: "Eleza AI",
+      href: "https://gen-ai-platform.eleza.ai/",
+      links: [
+        {
+          href: "https://gen-ai-platform.eleza.ai/",
+          icon: "",
+          type: "Website",
+        }
+      ],
+      dates: "Nov 2024 – Present",
+      active: true,
+      description:
+        "Eleza AI is an AI-driven platform that generates customizable legal and enforcement documents with ease. It offers metadata enrichment and multiple export formats, catering to legal professionals who need precision and flexibility.",
+      technologies: ["TypeScript", "Next.js", "Supabase", "OpenAI", "AWS"],
+    },
+   
     {
       title: "KanbanFlow",
       href: "https://taskboard.vercel.app/",
@@ -223,7 +224,7 @@ export const DATA = {
       dates: "March 2024 – Present",
       active: true,
       description:
-        "KanbanFlow is a Kanban-style task manager emphasizing local-first functionality, keeping your data secure on your device. Its intuitive interface simplifies task and project organization, blending performance with usability. Built with TypeScript, React.js, Express.js, PostgreSQL, and Prisma for a robust experience.",
+        "KanbanFlow is a Kanban-style task manager emphasizing local-first functionality, keeping your data secure on your device. Its intuitive interface simplifies task and project organization, blending performance with usability.",
       technologies: ["TypeScript", "React.js", "Express.js", "PostgreSQL", "Prisma"],
     },
     {
@@ -281,7 +282,7 @@ export const DATA = {
       dates: "August 2024 – Present",
       active: true,
       description:
-        "Frame Flex enables users to capture screenshots and create GIFs from targeted webpage sections. Powered by html2canvas, it’s perfect for crafting visual content for presentations or documentation. Built with TypeScript for dependable performance and ease of use.",
+        "Frame Flex enables users to capture screenshots and create GIFs from targeted webpage sections. Powered by html2canvas, it’s perfect for crafting visual content for presentations or documentation.",
       technologies: ["TypeScript"],
     },
     {
@@ -302,7 +303,7 @@ export const DATA = {
       dates: "September 2024 – Present",
       active: true,
       description:
-        "Crypto Converter is a sleek web app for converting cryptocurrency values into fiat currencies using real-time exchange rates. Designed for crypto enthusiasts and investors, it offers accuracy and simplicity. Built with TypeScript, React.js, Express.js, and ShadcnUI for a polished user experience.",
+        "Crypto Converter is a sleek web app for converting cryptocurrency values into fiat currencies using real-time exchange rates. Designed for crypto enthusiasts and investors, it offers accuracy and simplicity.",
       technologies: ["TypeScript", "React.js", "Express.js", "ShadcnUI"],
     },
     {
@@ -323,7 +324,7 @@ export const DATA = {
       dates: "December 2023 – Present",
       active: true,
       description:
-        "RoomPay is a TypeScript-powered app that streamlines expense tracking and settlement among friends. Users can log expenses, calculate dues, and manage group finances effortlessly. Developed with React.js, Supabase, and Material UI for a clean, intuitive interface.",
+        "RoomPay is a TypeScript-powered app that streamlines expense tracking and settlement among friends. Users can log expenses, calculate dues, and manage group finances effortlessly.",
       technologies: ["TypeScript", "React.js", "Supabase", "Material UI"],
     }
   ],

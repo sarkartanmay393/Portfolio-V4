@@ -62,7 +62,7 @@ export default function BlogList({ initialPosts, allTags }: BlogListProps) {
   }, [initialPosts]);
 
   return (
-    <section>
+    <section id="blogs">
       <div className="flex items-center justify-between gap-8">
         <BlurFade delay={BLUR_FADE_DELAY}>
           <h1 className="font-medium text-2xl mb-8 tracking-tighter">blogs</h1>
