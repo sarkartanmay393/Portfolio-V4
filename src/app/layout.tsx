@@ -1,12 +1,12 @@
 import Navbar, { NavbarBigScreen } from "@/components/navbar";
-import { ThemeProvider } from "@/components/theme-provider";
+import { ThemeProvider } from "@/app/theme-provider";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { DATA } from "@/services/resume";
 import { cn } from "@/lib/utils";
 import type { Metadata } from "next";
 import { Inter as FontSans } from "next/font/google";
 import "./globals.css";
-import { CSPostHogProvider } from "@/components/postHog.provider";
+import { CSPostHogProvider } from "@/app/postHog.provider";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     siteName: `${DATA.name}`,
     locale: "en_US",
     type: "website",
-    images: '/screenshot.png',
+    images: '/me.webp',
   },
   robots: {
     index: true,

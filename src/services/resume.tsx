@@ -8,10 +8,10 @@ export const DATA = {
   location: "Dhupguri, West Bengal, India",
   locationLink: "https://www.google.com/maps/place/dhupguri",
   description:
-    "Professionally software engineer with a passion for product development and explorer across different domains.", 
+    "Professionally software engineer with a passion for product development and explorer across different domains.",
   summary:
     "Have experience of developing web applications, servers, ci/cd pipelines and AI workflows. I post nonsense on X as well, and share other content across my socials. Other times, I ride motorcycles, make videos, play digital games and help my father in his business.",
-  avatarUrl: "/me.jpeg",
+  avatarUrl: "/me.webp",
   skills: [
     "JavaScript",
     // "TypeScript",
@@ -205,7 +205,7 @@ export const DATA = {
         "Eleza AI is an AI-driven platform that generates customizable legal and enforcement documents with ease. It offers metadata enrichment and multiple export formats, catering to legal professionals who need precision and flexibility.",
       technologies: ["TypeScript", "Next.js", "Supabase", "OpenAI", "AWS"],
     },
-   
+
     {
       title: "KanbanFlow",
       href: "https://taskboard.vercel.app/",
@@ -330,24 +330,24 @@ export const DATA = {
   ],
   hackathons: [],
   notes: [
-    { 
-      type: "quote", 
+    {
+      type: "quote",
       brief: "You are the product of your environment.",
       publishedAt: "2025-06-25",
       title: "",
       url: "",
       cover: "",
     },
-    { 
-      type: "quote", 
+    {
+      type: "quote",
       brief: "Fear is just faith in negative.",
       publishedAt: "2025-06-25",
       title: "",
       url: "",
       cover: "",
     },
-    { 
-      type: "quote", 
+    {
+      type: "quote",
       brief: "You are what you think you are. You are what you do. You are what you want to do. And you are the best thing since sliced bread.",
       publishedAt: "2023-08-18",
       title: "",

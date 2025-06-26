@@ -84,7 +84,8 @@ export const LinkPreview = ({
             height={height}
             quality={quality}
             layout={layout}
-            priority={true}
+            // priority={true}
+            loading="lazy"
             alt="hidden image"
           />
         </div>

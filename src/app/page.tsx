@@ -13,7 +13,6 @@ import { buttonVariants } from "@/components/ui/button";
 import { WordRotate } from "@/components/magicui/word-rotate";
 import { LinkPreview } from "@/components/ui/link-preview";
 import GitHubCalendar from "react-github-calendar";
-import { SmoothCursor } from "@/components/ui/smooth-cursor";
 
 const GREETINGS = ["Hello", "नमस्ते", "Hallo", "你好", "Hola", "Ciao"];
 
@@ -45,7 +44,7 @@ export default function Page() {
             </div>
             <BlurFade delay={BLUR_FADE_DELAY}>
               <Avatar className="size-28 border">
-                <AvatarImage alt={DATA.name} src={DATA.avatarUrl} />
+                <AvatarImage fetchPriority="high" alt={DATA.name} src={DATA.avatarUrl} />
                 <AvatarFallback>{DATA.initials}</AvatarFallback>
               </Avatar>
             </BlurFade>
@@ -62,7 +61,7 @@ export default function Page() {
             Have experience of developing web applications, servers, ci/cd pipelines and AI workflows. I post nonsense on
             <LinkPreview
               url={DATA.contact.social.x.url}
-              imageSrc="/x-account-screenshot.png"
+              imageSrc="/x-account-screenshot.webp"
               isStatic
               className="inline-block px-1 font-semibold prose text-pretty no-underline font-sans text-sm dark:prose-invert"
             >X/Twitter</LinkPreview>
@@ -138,7 +137,7 @@ export default function Page() {
             </h2>
           </BlurFade>
           <div className="grid grid-cols-1">
-            <BlurFade delay={BLUR_FADE_DELAY * 18}>
+            <BlurFade delay={BLUR_FADE_DELAY * 30}>
               <GitHubCalendar username="sarkartanmay393" hideColorLegend />
             </BlurFade>
           </div>
