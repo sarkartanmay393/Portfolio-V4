@@ -14,7 +14,7 @@ import { WordRotate } from "@/components/magicui/word-rotate";
 import { LinkPreview } from "@/components/ui/link-preview";
 import GitHubCalendar from "react-github-calendar";
 
-const GREETINGS = ["Hello", "नमस्ते", "你好", "Hola", "Bonjour", "Ciao", "Hallo"];
+const GREETINGS = ["Hello", "नमस्ते", "你好", "Hola", "Ciao", "Hallo"];
 
 export default function Page() {
   const greetings = GREETINGS;
