@@ -13,7 +13,7 @@ export default function NotFound() {
             />
             <div className="text-center flex flex-col items-center gap-4 max-w-lg">
                 <p className="text-muted-foreground prose">
-                    Sorry, the page you are looking for doesn't exist or has been moved.
+                    Sorry, the page you are looking for doesn&apos;t exist or has been moved.
                 </p>
                 <a href="/" className="transition-colors duration-300 text-black/70 hover:text-black">
                     &larr; Go back
