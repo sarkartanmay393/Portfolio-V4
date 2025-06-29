@@ -13,6 +13,7 @@ import { buttonVariants } from "@/components/ui/button";
 import { WordRotate } from "@/components/magicui/word-rotate";
 import { LinkPreview } from "@/components/ui/link-preview";
 import GitHubCalendar from "react-github-calendar";
+import { TopSong } from "@/components/top-song";
 
 const GREETINGS = ["Hello", "नमस्ते", "Hallo", "你好", "Hola", "Ciao"];
 
@@ -56,16 +57,22 @@ export default function Page() {
           <h2 className="text-xl font-semibold">About</h2>
         </BlurFade>
         <BlurFade delay={BLUR_FADE_DELAY * 4}>
-          <span className="prose max-w-full text-pretty font-sans text-base text-foreground/70 dark:prose-invert">
-            Have experience of developing web applications, servers, ci/cd pipelines and AI workflows. I post nonsense on
-            <LinkPreview
-              url={DATA.contact.social.x.url}
-              imageSrc="/x-account-screenshot.webp"
-              isStatic
-              className="inline-block px-1 font-semibold prose text-pretty no-underline font-sans text-sm dark:prose-invert"
-            >X/Twitter</LinkPreview>
-            as well, and share other content across my socials. Other times, I ride motorcycles, make videos, play digital games and help my father in his business.
-          </span>
+          <div className="space-y-3">
+            <span className="prose max-w-full text-pretty font-sans text-base text-foreground/70 dark:prose-invert">
+              Have experience of developing web applications, servers, ci/cd pipelines and AI workflows. I post nonsense on
+              <LinkPreview
+                url={DATA.contact.social.x.url}
+                imageSrc="/x-account-screenshot.webp"
+                isStatic
+                className="inline-block px-1 font-semibold prose text-pretty no-underline font-sans text-sm dark:prose-invert"
+              >X/Twitter</LinkPreview>
+              as well, and share other content across my socials. Other times, I ride motorcycles, make videos, play digital games and help my father in his business.
+            </span>
+            
+            <BlurFade delay={BLUR_FADE_DELAY * 5}>
+              <TopSong />
+            </BlurFade>
+          </div>
         </BlurFade>
       </section>
 
