@@ -55,7 +55,7 @@ export function TopSong() {
         href={song.spotifyUrl}
         target="_blank"
         rel="noopener noreferrer"
-        className="text-blue-600 hover:text-blue-500 underline underline-offset-2 transition-colors"
+        className="text-blue-600 hover:text-blue-500 transition-colors"
       >
         "{song.title}" by {song.artist}
       </Link>
