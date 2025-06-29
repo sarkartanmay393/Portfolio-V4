@@ -57,7 +57,7 @@ export function TopSong() {
         rel="noopener noreferrer"
         className="text-blue-600 hover:text-blue-500 transition-colors"
       >
-        "{song.title}" by {song.artist}
+        &quot;{song.title}&quot; by {song.artist}
       </Link>
     </span>
   );
