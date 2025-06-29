@@ -2,11 +2,14 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ['github.com', 'cdn.hashnode.com'],
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "cdn.hashnode.com",
+        hostname: "github.com",
+      },
+      {
+        protocol: "https",
+        hostname: "**.hashnode.com",
         port: "",
         pathname: "/res/hashnode/image/upload/**",
       },
@@ -26,6 +29,16 @@ const nextConfig = {
         protocol: "https",
         hostname: "ghchart.rshah.org",
       },
+      {
+        protocol: "https",
+        hostname: "i.scdn.co",
+        port: "",
+        pathname: "/image/**",
+      },
+      {
+        protocol: "https",
+        hostname: "**.spotifycdn.com",
+      }
     ],
   },
 };
