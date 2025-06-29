@@ -27,13 +27,12 @@ export default function Page() {
             <div className="flex-col flex flex-1 space-y-2.5">
               <BlurFade
                 delay={BLUR_FADE_DELAY}
-                className="transition-all duration-300 text-3xl font-bold tracking-tighter sm:text-5xl xl:text-5xl/none"
+                className="transition-all duration-300 text-2xl font-bold tracking-tighter sm:text-5xl xl:text-5xl/none"
                 yOffset={4}
               >
                 <div className="inline-flex items-center">
-                  <WordRotate words={greetings} className="w-[100px]" />
-                  {/* <span className="ml-2.5"> </span> */}
-                  <span className="ml-6"> I&apos;m {DATA.name.split(" ")[0]} 👋</span>
+                  <WordRotate words={greetings} className="w-[64px] sm:w-[100px]" />
+                  <span className="sm:ml-6 text-nowrap"> I&apos;m {DATA.name.split(" ")[0]} 👋</span>
                 </div>
               </BlurFade>
               <BlurFadeText
@@ -133,7 +132,7 @@ export default function Page() {
         <div className="space-y-4 w-full">
           <BlurFade delay={BLUR_FADE_DELAY * 13}>
             <h2 className="text-xl font-semibold">Stats
-              <span className="text-sm text-muted-foreground font-light pl-2 pb-1.5">(most of contributes are now in company github)</span>
+              <span className="text-xs sm:text-sm text-muted-foreground font-light pl-2 pb-1.5">(most of contributes are now in company github)</span>
             </h2>
           </BlurFade>
           <div className="grid grid-cols-1">

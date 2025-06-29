@@ -32,6 +32,9 @@ export const DATA = {
     "Kubernetes",
     // "LangChain",
     // "React Native",
+    "Angular",
+    "PyTorch",
+    "TensorFlow",
     "Ether.js",
     // "Jest"
   ],
@@ -39,7 +42,7 @@ export const DATA = {
     { href: "/", icon: HomeIcon, label: "home" },
     { href: "/blogs", icon: NotebookIcon, label: "blogs" },
     { href: "/works", icon: Computer, label: "works" },
-    { href: "/notes", icon: BookOpenText, label: "notes" },
+    { href: "/notes", icon: BookOpenText, label: "notes" }
   ],
   contact: {
     email: "sarkartanmay393@gmail.com",
@@ -332,7 +335,7 @@ export const DATA = {
   notes: [
     {
       type: "quote",
-      brief: "You are the product of your environment.",
+      brief: "you are the product of your environment.",
       publishedAt: "2025-06-25",
       title: "",
       url: "",
@@ -340,7 +343,7 @@ export const DATA = {
     },
     {
       type: "quote",
-      brief: "Fear is just faith in negative.",
+      brief: "fear is just faith in negative.",
       publishedAt: "2025-06-25",
       title: "",
       url: "",
@@ -348,7 +351,7 @@ export const DATA = {
     },
     {
       type: "quote",
-      brief: "You are what you think you are. You are what you do. You are what you want to do. And you are the best thing since sliced bread.",
+      brief: "you are what you think you are.",
       publishedAt: "2023-08-18",
       title: "",
       url: "",
