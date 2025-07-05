@@ -1,6 +1,6 @@
 import { getPlaylist } from '@/lib/spotify';
 
-const CACHE_DURATION = 2 * 60 * 60 * 1000;
+const CACHE_DURATION = 24;
 
 let cache: {
   data: any;
