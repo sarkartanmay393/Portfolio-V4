@@ -60,12 +60,12 @@ export const DATA = {
         icon: Icons.linkedin,
         navbar: true,
       },
-      // Blog: {
-      //   name: "Blog",
-      //   url: "https://tanmaysarkar.hashnode.dev",
-      //   icon: Icons.globe,
-      //   navbar: true,
-      // },
+      Instagram: {
+        name: "Instagram",
+        url: "https://www.instagram.com/tanmaysrkr",
+        icon: Icons.instagram,
+        navbar: true,
+      },
       email: {
         name: "Send Email",
         url: "mailto:sarkartanmay393@gmail.com",

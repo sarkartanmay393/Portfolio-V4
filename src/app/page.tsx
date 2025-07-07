@@ -66,7 +66,14 @@ export default function Page() {
                 isStatic
                 className="inline-block px-1 font-semibold prose text-pretty no-underline font-sans text-sm dark:prose-invert"
               >X/Twitter</LinkPreview>
-              as well, and share other content across my socials. Other times, I ride motorcycles, make videos, play digital games and help my father in his business.
+              as well, and share other content across my socials. Other times, I ride 
+              <LinkPreview
+                url={DATA.contact.social.Instagram.url}
+                imageSrc="/bike.webp"
+                isStatic
+                className="inline-block pl-1 font-semibold prose text-pretty no-underline font-sans text-sm dark:prose-invert"
+              >motorcycles</LinkPreview>
+              , make videos, play digital games and help my father in his business.
             </span>
             
             <BlurFade delay={BLUR_FADE_DELAY * 5}>
@@ -171,6 +178,7 @@ export default function Page() {
                       <Tooltip key={name}>
                         <TooltipTrigger asChild>
                           <Link
+                            target="_blank"
                             href={social.url}
                             className={cn(
                               buttonVariants({ variant: "ghost", size: "icon" }),
