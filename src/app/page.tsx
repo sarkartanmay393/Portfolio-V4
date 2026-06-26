@@ -107,7 +107,7 @@ export default async function Page() {
               <Link href="/blogs" className="font-semibold hover:underline">
                 blogs
               </Link>{" "}
-              about the things I'm learning, jot down{" "}
+              about the things I&apos;m learning, jot down{" "}
               <Link href="/notes" className="font-semibold hover:underline">
                 notes
               </Link>{" "}
@@ -115,7 +115,7 @@ export default async function Page() {
               <Link href="/works" className="font-semibold hover:underline">
                 side projects
               </Link>{" "}
-              just to see if I can. For the resume version — where I've worked and what I actually know — see my{" "}
+              just to see if I can. For the resume version — where I&apos;ve worked and what I actually know — see my{" "}
               <Link href="/experience" className="font-semibold hover:underline">
                 work experience and skills
               </Link>
