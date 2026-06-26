@@ -1,9 +1,6 @@
 import BlurFade from "@/components/magicui/blur-fade";
-import { DATA } from "@/services/resume";
+import { getResumeData } from "@/services/resume";
 import { BLUR_FADE_DELAY } from "@/lib/constants";
-import { ProjectCard } from "@/components/project-card";
-import { Button } from "@/components/ui/button";
-import Link from "next/link";
 import { Fragment } from "react";
 import { ExternalLink } from "lucide-react";
 
@@ -12,7 +9,8 @@ export const metadata = {
   description: "My works.",
 };
 
-export default function ProjectsPage() {
+export default async function ProjectsPage() {
+  const DATA = await getResumeData();
 
   return (
     <section id="works">

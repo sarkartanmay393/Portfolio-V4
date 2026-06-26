@@ -1,14 +1,16 @@
 import BlurFade from "@/components/magicui/blur-fade";
 import { NoteCard } from "@/components/note.card";
 import { BLUR_FADE_DELAY } from "@/lib/constants";
-import { DATA } from "@/services/resume";
+import { getResumeData } from "@/services/resume";
 
 export const metadata = {
   title: "Notes",
   description: "My thoughts on software development, life, and more.",
 };
 
-export default function NotesPage() {
+export default async function NotesPage() {
+  const DATA = await getResumeData();
+
   return (
     <section>
       <BlurFade delay={BLUR_FADE_DELAY}>
@@ -16,7 +18,7 @@ export default function NotesPage() {
       </BlurFade>
       <div className="flex flex-col gap-2">
         {DATA.notes.map((note, id) => (
-          <BlurFade delay={BLUR_FADE_DELAY * 2 + id * 0.05} key={(note as any)?.slug + id}>
+          <BlurFade delay={BLUR_FADE_DELAY * 2 + id * 0.05} key={id}>
             <NoteCard
               no={id + 1}
               title={note?.title || note.brief}

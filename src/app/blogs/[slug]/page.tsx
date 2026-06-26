@@ -1,5 +1,5 @@
 import { getPost } from "@/services/blog";
-import { DATA } from "@/services/resume";
+import { getResumeData } from "@/services/resume";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
@@ -13,10 +13,12 @@ export async function generateMetadata({
   };
 }): Promise<Metadata | undefined> {
   let post = await getPost(params.slug);
-  
+
   if (!post) {
     return undefined;
   }
+
+  const DATA = await getResumeData();
 
   let {
     title,
@@ -62,6 +64,8 @@ export default async function Blog({
   if (!post) {
     notFound();
   }
+
+  const DATA = await getResumeData();
 
 const getDate = (date: string) => {
   return new Date(date).toLocaleString("en-us", {

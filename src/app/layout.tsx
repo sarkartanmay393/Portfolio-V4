@@ -1,7 +1,7 @@
 import Navbar, { NavbarBigScreen } from "@/components/navbar";
 import { ThemeProvider } from "@/app/theme-provider";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import { DATA } from "@/services/resume";
+import { getResumeData } from "@/services/resume";
 import { cn } from "@/lib/utils";
 import type { Metadata } from "next";
 import { Inter as FontSans } from "next/font/google";
@@ -13,42 +13,46 @@ const fontSans = FontSans({
   variable: "--font-sans",
 });
 
-export const metadata: Metadata = {
-  metadataBase: new URL(DATA.url),
-  title: {
-    default: DATA.name,
-    template: `%s | ${DATA.name}`,
-  },
-  description: DATA.description,
-  openGraph: {
-    title: `${DATA.name}`,
+export async function generateMetadata(): Promise<Metadata> {
+  const DATA = await getResumeData();
+
+  return {
+    metadataBase: new URL(DATA.url),
+    title: {
+      default: DATA.name,
+      template: `%s | ${DATA.name}`,
+    },
     description: DATA.description,
-    url: DATA.url,
-    siteName: `${DATA.name}`,
-    locale: "en_US",
-    type: "website",
-    images: '/me.webp',
-  },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
+    openGraph: {
+      title: `${DATA.name}`,
+      description: DATA.description,
+      url: DATA.url,
+      siteName: `${DATA.name}`,
+      locale: "en_US",
+      type: "website",
+      images: '/me.webp',
+    },
+    robots: {
       index: true,
       follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
+      googleBot: {
+        index: true,
+        follow: true,
+        "max-video-preview": -1,
+        "max-image-preview": "large",
+        "max-snippet": -1,
+      },
     },
-  },
-  twitter: {
-    title: `${DATA.name}`,
-    card: "summary_large_image",
-  },
-  verification: {
-    google: "",
-    yandex: "",
-  },
-};
+    twitter: {
+      title: `${DATA.name}`,
+      card: "summary_large_image",
+    },
+    verification: {
+      google: "",
+      yandex: "",
+    },
+  };
+}
 
 export default function RootLayout({
   children,

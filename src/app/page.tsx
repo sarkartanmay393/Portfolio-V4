@@ -2,7 +2,7 @@ import BlurFade from "@/components/magicui/blur-fade";
 import BlurFadeText from "@/components/magicui/blur-fade-text";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
-import { DATA } from "@/services/resume";
+import { getResumeData } from "@/services/resume";
 import { BLUR_FADE_DELAY } from "@/lib/constants";
 import { HackathonCard } from "@/components/hackathon-card";
 import { cn } from "@/lib/utils";
@@ -18,10 +18,12 @@ import { ExternalLink } from "lucide-react";
 
 const GREETINGS = ["Hello", "नमस्ते", "Hallo", "你好", "Hola", "Ciao"];
 
-export default function Page() {
+export default async function Page() {
+  const DATA = await getResumeData();
   const greetings = GREETINGS;
-  const featuredWork = DATA.works.find((w) => w.title === "GeoPulse")!;
-  const showFeaturedWork = true;
+  const highlightWork = (DATA.highlightWork || "GeoPulse").toLowerCase().split(" ").join("");
+  const featuredWork = DATA.works.find((w: any) => w.title.toLowerCase().split(" ").join("") === highlightWork)!;
+  const showFeaturedWork = DATA.showHighlightWork;
 
   return (
     <main className="flex flex-col min-h-[100dvh] space-y-8">
