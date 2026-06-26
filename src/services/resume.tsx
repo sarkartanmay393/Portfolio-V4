@@ -323,6 +323,14 @@ export const DATA = {
   notes: [
     {
       type: "quote",
+      brief: "in their dreams only can men be truly free.",
+      publishedAt: "2026-06-26",
+      title: "",
+      url: "",
+      cover: "",
+    },
+    {
+      type: "quote",
       brief: "you are the product of your environment.",
       publishedAt: "2025-06-25",
       title: "",

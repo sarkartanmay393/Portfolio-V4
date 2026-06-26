@@ -14,14 +14,39 @@ import { WordRotate } from "@/components/magicui/word-rotate";
 import { LinkPreview } from "@/components/ui/link-preview";
 import GitHubCalendar from "react-github-calendar";
 import { TopSong } from "@/components/top-song";
+import { ExternalLink } from "lucide-react";
 
 const GREETINGS = ["Hello", "नमस्ते", "Hallo", "你好", "Hola", "Ciao"];
 
 export default function Page() {
   const greetings = GREETINGS;
+  const featuredWork = DATA.works.find((w) => w.title === "GeoPulse")!;
+  const showFeaturedWork = true;
 
   return (
     <main className="flex flex-col min-h-[100dvh] space-y-8">
+      
+      {/* Warm up the GeoPulse origin as soon as the portfolio loads, and ask
+          Chromium browsers to fully prerender it in the background so the
+          click feels instant. Other browsers just get the cheaper preconnect. */}
+      <link rel="preconnect" href={featuredWork.href} />
+      <link rel="dns-prefetch" href={featuredWork.href} />
+      <link rel="prefetch" href={featuredWork.href} as="document" />
+      <script
+        type="speculationrules"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            prerender: [
+              {
+                source: "list",
+                urls: [featuredWork.href],
+                eagerness: "moderate",
+              },
+            ],
+          }),
+        }}
+      />
+
       <section id="hero">
         <div className="mx-auto w-full max-w-2xl space-y-8">
           <div className="gap-2 flex justify-between">
@@ -80,6 +105,29 @@ export default function Page() {
               <TopSong />
             </BlurFade>
           </div>
+        </BlurFade>
+      </section>
+
+      <section id="highlight" className={cn(showFeaturedWork ? '' : 'hidden')}>
+        <BlurFade delay={BLUR_FADE_DELAY * 5.5}>
+          <Link
+            href={featuredWork.href}
+            target="_blank"
+            className="group block rounded-lg border p-4 transition-colors hover:bg-muted/50"
+          >
+            <div className="flex items-center justify-between gap-2">
+              <span className="inline-flex items-center gap-1.5 text-xs font-medium text-foreground/70">
+                <span className="relative flex size-2">
+                  <span className="absolute inline-flex size-full animate-ping rounded-full bg-green-500 opacity-75" />
+                  <span className="relative inline-flex size-2 rounded-full bg-green-500" />
+                </span>
+                Currently building
+              </span>
+              <ExternalLink className="size-3.5 text-muted-foreground transition-transform group-hover:translate-x-0.5" />
+            </div>
+            <h3 className="mt-1.5 text-sm font-semibold">{featuredWork.title}</h3>
+            <p className="text-sm text-foreground/70">{featuredWork.description}</p>
+          </Link>
         </BlurFade>
       </section>
 
