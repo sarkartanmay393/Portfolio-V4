@@ -1,7 +1,6 @@
 import BlurFade from "@/components/magicui/blur-fade";
 import BlurFadeText from "@/components/magicui/blur-fade-text";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Badge } from "@/components/ui/badge";
 import { getResumeData } from "@/services/resume";
 import { BLUR_FADE_DELAY } from "@/lib/constants";
 import { HackathonCard } from "@/components/hackathon-card";
@@ -85,7 +84,7 @@ export default async function Page() {
         </BlurFade>
         <BlurFade delay={BLUR_FADE_DELAY * 4}>
           <div className="space-y-3">
-            <span className="prose max-w-full text-pretty font-sans text-base text-foreground/70 dark:prose-invert">
+            <p className="prose max-w-full text-pretty font-sans text-base text-foreground/70 dark:prose-invert">
               Have experience of developing web applications, servers, ci/cd pipelines and AI workflows. I post nonsense on
               <LinkPreview
                 url={DATA.contact.social.x.url}
@@ -93,7 +92,7 @@ export default async function Page() {
                 isStatic
                 className="inline-block px-1 font-semibold prose text-pretty no-underline font-sans text-sm dark:prose-invert"
               >X/Twitter</LinkPreview>
-              as well, and share other content across my socials. Other times, I ride 
+              as well, and share other content across my socials. Other times, I ride
               <LinkPreview
                 url={DATA.contact.social.Instagram.url}
                 imageSrc="/bike.webp"
@@ -101,8 +100,28 @@ export default async function Page() {
                 className="inline-block pl-1 font-semibold prose text-pretty no-underline font-sans text-sm dark:prose-invert"
               >motorcycles</LinkPreview>
               , make videos, play digital games and help my father in his business.
-            </span>
-            
+            </p>
+
+            <p className="prose max-w-full text-pretty font-sans text-base text-foreground/70 dark:prose-invert">
+              I also write{" "}
+              <Link href="/blogs" className="font-semibold hover:underline">
+                blogs
+              </Link>{" "}
+              about the things I'm learning, jot down{" "}
+              <Link href="/notes" className="font-semibold hover:underline">
+                notes
+              </Link>{" "}
+              and quotes that stick with me, and ship random{" "}
+              <Link href="/works" className="font-semibold hover:underline">
+                side projects
+              </Link>{" "}
+              just to see if I can. For the resume version — where I've worked and what I actually know — see my{" "}
+              <Link href="/experience" className="font-semibold hover:underline">
+                work experience and skills
+              </Link>
+              .
+            </p>
+
             <BlurFade delay={BLUR_FADE_DELAY * 5}>
               <TopSong />
             </BlurFade>
@@ -131,49 +150,6 @@ export default async function Page() {
             <p className="text-sm text-foreground/70">{featuredWork.description}</p>
           </Link>
         </BlurFade>
-      </section>
-
-      <section id="work">
-        <div className="space-y-4 w-full">
-          <BlurFade delay={BLUR_FADE_DELAY * 6}>
-            <h2 className="text-xl font-semibold">Work Experience</h2>
-          </BlurFade>
-          <div className="space-y-5">
-            {DATA.work.map((job, id) => (
-              <BlurFade key={job.company} delay={BLUR_FADE_DELAY * 7 + id * 0.05}>
-                <div className="space-y-1">
-                  <div className="flex flex-wrap items-baseline justify-between gap-x-2">
-                    <h3 className="text-sm sm:text-base font-semibold">
-                      <Link href={job.href} target="_blank" className="hover:underline">
-                        {job.company}
-                      </Link>
-                      <span className="font-normal text-muted-foreground"> — {job.title}</span>
-                    </h3>
-                    <span className="text-xs sm:text-sm text-muted-foreground tabular-nums whitespace-nowrap">
-                      {job.start} – {job.end}
-                    </span>
-                  </div>
-                  <p className="text-sm text-foreground/70">{job.description}</p>
-                </div>
-              </BlurFade>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section id="skills">
-        <div className="flex min-h-0 flex-col gap-y-3">
-          <BlurFade delay={BLUR_FADE_DELAY * 9}>
-            <h2 className="text-xl font-semibold">Tech Skills</h2>
-          </BlurFade>
-          <div className="flex flex-wrap gap-1">
-            {DATA.skills.map((skill, id) => (
-              <BlurFade key={skill} delay={BLUR_FADE_DELAY * 10 + id * 0.05}>
-                <Badge key={skill} variant="outline">{skill}</Badge>
-              </BlurFade>
-            ))}
-          </div>
-        </div>
       </section>
 
       <section id="hackathons" className={cn(DATA.hackathons.length > 0 ? '' : 'hidden')}>

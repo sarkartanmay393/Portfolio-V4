@@ -1,5 +1,5 @@
 import { Icons } from "@/components/icons";
-import { BookOpenText, Computer, HomeIcon, NotebookIcon } from "lucide-react";
+import { BookOpenText, BriefcaseBusiness, Computer, HomeIcon, NotebookIcon } from "lucide-react";
 import { cache } from "react";
 import { getKVBulk } from "@/lib/kv";
 
@@ -8,6 +8,7 @@ const NAVBAR_ICONS: Record<string, any> = {
   blogs: NotebookIcon,
   works: Computer,
   notes: BookOpenText,
+  experience: BriefcaseBusiness,
 };
 
 const SOCIAL_ICONS: Record<string, any> = {
