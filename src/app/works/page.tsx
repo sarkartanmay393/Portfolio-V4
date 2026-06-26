@@ -31,7 +31,7 @@ export default function ProjectsPage() {
               <div className="flex flex-col gap-1">
                 <h3 className="cursor-pointer text-base font-semibold hover:font-bold hover:text-primary transition-all duration-300 flex items-center gap-1">
                   {project?.href ? (
-                    <a href={project.href} target="_blank" rel="noopener noreferrer">{project.title}</a>
+                    <a href={project.href} target="_blank" rel="noopener noreferrer prefetch">{project.title}</a>
                   ) : (
                     <span>{project.title}</span>
                   )}

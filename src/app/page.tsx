@@ -83,6 +83,34 @@ export default function Page() {
         </BlurFade>
       </section>
 
+      <section id="work">
+        <div className="space-y-4 w-full">
+          <BlurFade delay={BLUR_FADE_DELAY * 6}>
+            <h2 className="text-xl font-semibold">Work Experience</h2>
+          </BlurFade>
+          <div className="space-y-5">
+            {DATA.work.map((job, id) => (
+              <BlurFade key={job.company} delay={BLUR_FADE_DELAY * 7 + id * 0.05}>
+                <div className="space-y-1">
+                  <div className="flex flex-wrap items-baseline justify-between gap-x-2">
+                    <h3 className="text-sm sm:text-base font-semibold">
+                      <Link href={job.href} target="_blank" className="hover:underline">
+                        {job.company}
+                      </Link>
+                      <span className="font-normal text-muted-foreground"> — {job.title}</span>
+                    </h3>
+                    <span className="text-xs sm:text-sm text-muted-foreground tabular-nums whitespace-nowrap">
+                      {job.start} – {job.end}
+                    </span>
+                  </div>
+                  <p className="text-sm text-foreground/70">{job.description}</p>
+                </div>
+              </BlurFade>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section id="skills">
         <div className="flex min-h-0 flex-col gap-y-3">
           <BlurFade delay={BLUR_FADE_DELAY * 9}>

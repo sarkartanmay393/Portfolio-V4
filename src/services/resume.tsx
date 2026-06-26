@@ -4,39 +4,45 @@ import { BookOpenText, Computer, HomeIcon, NotebookIcon } from "lucide-react";
 export const DATA = {
   name: "Tanmay Sarkar",
   initials: "TSR",
-  url: "https://tanmay.cloud",
-  location: "Dhupguri, West Bengal, India",
-  locationLink: "https://www.google.com/maps/place/dhupguri",
+  url: "https://tanmaysarkar.vercel.app",
+  location: "Pune, Maharashtra, India",
+  locationLink: "https://www.google.com/maps/place/Pune",
   description:
     "Professionally software engineer with a passion for product development and explorer across different domains.",
   summary:
     "Have experience of developing web applications, servers, ci/cd pipelines and AI workflows. I post nonsense on X as well, and share other content across my socials. Other times, I ride motorcycles, make videos, play digital games and help my father in his business.",
   avatarUrl: "/me.webp",
   skills: [
-    "JavaScript",
-    // "TypeScript",
+    "TypeScript",
+    // "JavaScript",
     "Python",
-    "Go",
-    // "Solidity",
+    "SQL",
     "React.js",
+    "Next.js",
+    "Angular",
+    "Redux",
+    // "Storybook",
+    "Jest",
     "Node.js",
     "Fast API",
-    "Next.js",
-    "MongoDB",
+    "REST APIs",
+    "GraphQL",
     "PostgreSQL",
-    "Redis",
+    // "Supabase",
+    "SQLite",
+    "Database Design",
+    "Google Cloud",
+    "Azure (Serverless)",
+    // "AWS",
+    "Cloudflare Workers",
     "Docker",
-    "Cloud Providers (AWS, GCP, Azure)",
-    "Git",
     // "GitHub Actions",
-    "Kubernetes",
-    // "LangChain",
-    // "React Native",
-    "Angular",
-    "PyTorch",
-    "TensorFlow",
-    "Ether.js",
-    // "Jest"
+    "Agentic Systems",
+    "RAG",
+    "MCP",
+    // "Anthropic SDK",
+    // "OpenAI SDK",
+    // "Pinecone",
   ],
   navbar: [
     { href: "/", icon: HomeIcon, label: "home" },
@@ -82,53 +88,35 @@ export const DATA = {
   },
   work: [
     {
-      company: "Simbian AI",
-      href: "https://simbian.ai",
-      badges: [],
+      company: "Re-twin Energy",
+      href: "https://re-twin.energy",
       location: "Remote",
-      title: "Software Engineer",
-      logoUrl: "/simbian.png",
-      start: "Jan 2025",
+      title: "Software Engineer (Full-Stack & Platform)",
+      start: "Mar 2025",
       end: "Present",
       description:
-        "Revamped the Simbian SaaS platform with a modern UI and dark mode support. Built and deployed a self-hosted CMS for company content. Added RBAC and internationalization (i18n) features to the SaaS product. Technologies: JavaScript, React.js, Django, LangChain, AWS."
+        "Built an AI assistant and a live energy-trading simulator now used by 60+ paying customers — plus automated reports that save 50+ customers a manual task every morning.",
+    },
+    {
+      company: "Simbian AI",
+      href: "https://simbian.ai",
+      location: "Remote",
+      title: "Software Engineer (Frontend, Contract)",
+      start: "Jan 2025",
+      end: "Mar 2025",
+      description:
+        "Built React/TypeScript frontend systems integrated with Django REST APIs for a multi-tenant cybersecurity SaaS, implementing per-customer scoping and role-based access control across 6 enterprise accounts.",
     },
     {
       company: "Nirmata",
       href: "https://nirmata.com",
-      badges: [],
-      location: "Bangalore, Karnataka, India",
-      title: "Software Engineer (Frontend)",
-      logoUrl: "/nirmata.webp",
-      start: "Jul 2024",
-      end: "Dec 2024",
-      description:
-        "Spearheaded the development of Managed Kyverno, enhancing SaaS performance by 15% and improving user satisfaction. Built and deployed the Policy Studio, enabling AI-driven policy generation with a user-friendly interface, reducing manual effort by 25%. Technologies: React.js, Docker, AWS, Go."
-    },
-    {
-      company: "Cheerio AI",
-      href: "https://cheerio.in",
-      badges: [],
-      location: "Bangalore, Karnataka, India",
-      title: "Software Engineer Intern",
-      logoUrl: "/cheerioai.png",
-      start: "Mar 2024",
-      end: "Jul 2024",
-      description:
-        "Overhauled the user interface, resulting in a 30% increase in speed and a smoother onboarding process. Implemented automated email and notification services using AWS SNS and SES, improving communication efficiency by 40%. Technologies: React.js, React Native, Node.js, MongoDB, Redis, AWS."
-    },
-    {
-      company: "Unreal Finance",
-      href: "https://unreal.finance",
-      badges: [],
       location: "Remote",
-      title: "Frontend Developer",
-      logoUrl: "/unrealfinance.webp",
-      start: "Feb 2023",
-      end: "Nov 2023",
+      title: "Software Development Engineer (Frontend)",
+      start: "Mar 2024",
+      end: "Jan 2025",
       description:
-        "Delivered a high-conversion landing page using Next.js, boosting user acquisition by 25%. Established a CI/CD pipeline with GitHub Actions and AWS EC2. Integrated secure payment features with Stripe API, ensuring robust transaction handling. Technologies: Next.js, Ether.js, MongoDB, Docker, AWS."
-    }
+        "Gave security teams a way to write and test Kubernetes policies without touching raw YAML — now used by 200+ enterprises — and made their policy lists load about 30% faster.",
+    },
   ],
   education: [
     {
@@ -151,6 +139,43 @@ export const DATA = {
   ],
   works: [
     {
+      title: "GeoPulse",
+      href: "https://geo-pulse.vercel.app",
+      links: [
+        {
+          href: "https://geo-pulse.vercel.app",
+          icon: "",
+          type: "Website",
+        },
+        {
+          href: "https://github.com/sarkartanmay393/GeoPulse",
+          icon: "",
+          type: "Github",
+        }
+      ],
+      dates: "Nov 2024 – Present",
+      active: true,
+      description:
+      "GeoPulse offers real-time analysis and visualization of geopolitical relationships across countries. Featuring interactive dashboards and advanced data processing for relation scores, it’s a powerful tool for understanding global dynamics.",
+      technologies: ["TypeScript", "Next.js", "Supabase", "OpenAI"],
+    },
+    {
+      title: "Eleza AI",
+      href: "https://gen-ai-platform.eleza.ai/",
+      links: [
+        {
+          href: "https://gen-ai-platform.eleza.ai/",
+          icon: "",
+          type: "Website",
+        }
+      ],
+      dates: "Nov 2024 – Present",
+      active: true,
+      description:
+      "Eleza AI is an AI-driven platform that generates customizable legal and enforcement documents with ease. It offers metadata enrichment and multiple export formats, catering to legal professionals who need precision and flexibility.",
+      technologies: ["TypeScript", "Next.js", "Supabase", "OpenAI", "AWS"],
+    },
+    {
       title: "Article AI",
       href: "https://articleai.vercel.app",
       links: [
@@ -171,44 +196,7 @@ export const DATA = {
         "Unlock the power of AI for effortless article creation. We’re almost there. Get ready to explore endless possibilities!",
       technologies: ["TypeScript", "Next.js", "Supabase", "OpenAI"],
     },
-    {
-      title: "GeoPulse",
-      href: "https://geo-pulse.vercel.app",
-      links: [
-        {
-          href: "https://geo-pulse.vercel.app",
-          icon: "",
-          type: "Website",
-        },
-        {
-          href: "https://github.com/sarkartanmay393/GeoPulse",
-          icon: "",
-          type: "Github",
-        }
-      ],
-      dates: "Nov 2024 – Present",
-      active: true,
-      description:
-        "GeoPulse offers real-time analysis and visualization of geopolitical relationships across countries. Featuring interactive dashboards and advanced data processing for relation scores, it’s a powerful tool for understanding global dynamics.",
-      technologies: ["TypeScript", "Next.js", "Supabase", "OpenAI"],
-    },
-    {
-      title: "Eleza AI",
-      href: "https://gen-ai-platform.eleza.ai/",
-      links: [
-        {
-          href: "https://gen-ai-platform.eleza.ai/",
-          icon: "",
-          type: "Website",
-        }
-      ],
-      dates: "Nov 2024 – Present",
-      active: true,
-      description:
-        "Eleza AI is an AI-driven platform that generates customizable legal and enforcement documents with ease. It offers metadata enrichment and multiple export formats, catering to legal professionals who need precision and flexibility.",
-      technologies: ["TypeScript", "Next.js", "Supabase", "OpenAI", "AWS"],
-    },
-
+    
     {
       title: "KanbanFlow",
       href: "https://taskboard.vercel.app/",
