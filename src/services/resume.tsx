@@ -1,15 +1,6 @@
 import { Icons } from "@/components/icons";
-import { BookOpenText, BriefcaseBusiness, Computer, HomeIcon, NotebookIcon } from "lucide-react";
 import { cache } from "react";
 import { getKVBulk } from "@/lib/kv";
-
-const NAVBAR_ICONS: Record<string, any> = {
-  home: HomeIcon,
-  blogs: NotebookIcon,
-  works: Computer,
-  notes: BookOpenText,
-  experience: BriefcaseBusiness,
-};
 
 const SOCIAL_ICONS: Record<string, any> = {
   GitHub: Icons.github,
@@ -50,7 +41,7 @@ export interface ResumeData {
   summary: string;
   avatarUrl: string;
   skills: string[];
-  navbar: { href: string; label: string; icon: any }[];
+  navbar: { href: string; label: string }[];
   contact: {
     email: string;
     tel: string;
@@ -82,11 +73,6 @@ export const getResumeData = cache(async (): Promise<ResumeData> => {
       data[key] = ifBoolean ? raw.toLowerCase().trim() === "true" : raw;
     }
   }
-
-  data.navbar = data.navbar.map((item: any) => ({
-    ...item,
-    icon: NAVBAR_ICONS[item.label] ?? HomeIcon,
-  }));
 
   for (const key of Object.keys(data.contact.social)) {
     data.contact.social[key].icon = SOCIAL_ICONS[key] ?? Icons.x;

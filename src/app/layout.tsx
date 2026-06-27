@@ -1,4 +1,4 @@
-import Navbar, { NavbarBigScreen } from "@/components/navbar";
+import Navbar from "@/components/navbar";
 import { ThemeProvider } from "@/app/theme-provider";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { getResumeData } from "@/services/resume";
@@ -54,25 +54,26 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const DATA = await getResumeData();
+
   return (
     <html lang="en" suppressHydrationWarning>
       <CSPostHogProvider>
         <body
           className={cn(
-            "min-h-screen bg-background font-sans antialiased max-w-2xl mx-auto px-5 py-8 pb-[72px] md:pb-8 md:pt-[102px]",
+            "min-h-screen bg-background font-sans antialiased max-w-2xl mx-auto px-5 pt-2 pb-8",
             fontSans.variable
           )}
         >
           <ThemeProvider attribute="class" defaultTheme="light">
             <TooltipProvider delayDuration={0}>
-              <NavbarBigScreen />
+              <Navbar navbar={DATA.navbar} />
               {children}
-              <Navbar />
             </TooltipProvider>
           </ThemeProvider>
         </body>
